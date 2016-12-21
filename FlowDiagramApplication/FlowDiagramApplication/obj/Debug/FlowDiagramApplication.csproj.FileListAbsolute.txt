@@ -1,0 +1,9 @@
+c:\users\az\documents\visual studio 2015\Projects\FlowDiagramApplication\FlowDiagramApplication\bin\Debug\FlowDiagramApplication.exe.config
+c:\users\az\documents\visual studio 2015\Projects\FlowDiagramApplication\FlowDiagramApplication\bin\Debug\FlowDiagramApplication.exe
+c:\users\az\documents\visual studio 2015\Projects\FlowDiagramApplication\FlowDiagramApplication\bin\Debug\FlowDiagramApplication.pdb
+c:\users\az\documents\visual studio 2015\Projects\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.Form1.resources
+c:\users\az\documents\visual studio 2015\Projects\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.Properties.Resources.resources
+c:\users\az\documents\visual studio 2015\Projects\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.csproj.GenerateResource.Cache
+c:\users\az\documents\visual studio 2015\Projects\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.exe
+c:\users\az\documents\visual studio 2015\Projects\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.pdb
+c:\users\az\documents\visual studio 2015\Projects\FlowDiagramApplication\FlowDiagramApplication\bin\Debug\FlowDiagramApplication.XML

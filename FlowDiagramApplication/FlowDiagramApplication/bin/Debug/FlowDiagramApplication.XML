@@ -1,0 +1,650 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FlowDiagramApplication</name>
+    </assembly>
+    <members>
+        <member name="T:FlowDiagramApplication.Components.AdjustableSplitter">
+            <summary>
+            The class representing the adjustable splitter component.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Components.AdjustableSplitter.divisionRate">
+            <summary>
+            The division rate of the adjustable splitter. 
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Components.AdjustableSplitter.outputUp">
+            <summary>
+            The component connected to the up output of the splitter.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Components.AdjustableSplitter.outputDown">
+            <summary>
+            The component connected to the down output of the splitter.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.AdjustableSplitter.ConnectSecondOutput(FlowDiagramApplication.Component)">
+            <summary>
+            The method that connects second(down) output component
+            </summary>
+            <param name="component">The component that is going to be connected.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.AdjustableSplitter.ConnectInput(FlowDiagramApplication.Component)">
+            <summary>
+            The method that makes the connection with the the input component
+            </summary>
+            <param name="component">The component that is going to be connected.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.AdjustableSplitter.ConnectOutput(FlowDiagramApplication.Component)">
+            <summary>
+            The method that makes the connection with the output component
+            </summary>
+            <param name="component">The component that is going to be connected.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.AdjustableSplitter.DisconnectInput">
+            <summary>
+            The method that disconnects the input component.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.AdjustableSplitter.DisconnectOutput">
+            <summary>
+            The method that disconnects the output component.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.AdjustableSplitter.DisconnectSecondOutput">
+            <summary>
+            The method that disconnects the second output component.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.AdjustableSplitter.SetDivisionRate(System.Double)">
+            <summary>
+            The method that sets the division rate.
+            </summary>
+            <param name="rate">The rate that is going to be set.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.AdjustableSplitter.ToString">
+            <summary>
+            The method that returns the info string of the component.
+            </summary>
+            <returns>Info string with the information about the component.</returns>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.AdjustableSplitter.#ctor(System.Drawing.Point,FlowDiagramApplication.ComponentType)">
+            <summary>
+            The constructor of the component.
+            </summary>
+            <param name="position">The initial position of the component.</param>
+            <param name="type">The type of the component.</param>
+        </member>
+        <member name="T:FlowDiagramApplication.Components.Merger">
+            <summary>
+            The class representing the Merger component.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Components.Merger.inputUp">
+            <summary>
+            The component connected to the up input of the merger.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Components.Merger.inputDown">
+            <summary>
+            The component connected to the down input of the merger.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Merger.ConnectInput(FlowDiagramApplication.Component)">
+            <summary>
+            The method that connects first(up) input component
+            </summary>
+            <param name="component">The component that is going to be connected.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Merger.ConnectSecondInput(FlowDiagramApplication.Component)">
+            <summary>
+            The method that connects second(down) input component
+            </summary>
+            <param name="component">The component that is going to be connected.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Merger.ConnectOutput(FlowDiagramApplication.Component)">
+            <summary>
+            The method that connects the first(up) output component
+            </summary>
+            <param name="component">The component that is going to be connected.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Merger.DisconnectInput">
+            <summary>
+            The method that disconnects the up input component.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Merger.DisconnectSecondInput">
+            <summary>
+            The method that disconnects the second input component.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Merger.DisconnectOutput">
+            <summary>
+            The method that disconnects the output component.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Merger.#ctor(System.Drawing.Point,FlowDiagramApplication.ComponentType)">
+            <summary>
+            The constructor of the component.
+            </summary>
+            <param name="position">The initial position of the component.</param>
+            <param name="type">The type of the component.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Merger.ToString">
+            <summary>
+            The method that returns the info string of the component.
+            </summary>
+            <returns>Info string with the information about the component.</returns>
+        </member>
+        <member name="T:FlowDiagramApplication.Components.Sink">
+            <summary>
+            The class representing the Sink component.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Components.Sink.input">
+            <summary>
+            The input of the sink.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Sink.#ctor(System.Drawing.Point,FlowDiagramApplication.ComponentType)">
+            <summary>
+            The constructor of the component.
+            </summary>
+            <param name="position">The initial position of the component.</param>
+            <param name="type">The type of the component.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Sink.Connect(FlowDiagramApplication.Component)">
+            <summary>
+            The method that connects the previous component to the sink.
+            </summary>
+            <param name="component"></param>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Sink.Disconnect">
+            <summary>
+            The method that disconnects the previous component to the sink. 
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Sink.ToString">
+            <summary>
+            The method that returns the info string of the component.
+            </summary>
+            <returns>Info string with the information about the component.</returns>
+        </member>
+        <member name="T:FlowDiagramApplication.Components.Splitter">
+            <summary>
+            The class representing the Splitter component.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Components.Splitter.outputUp">
+            <summary>
+            The component connected to the up output of the splitter.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Components.Splitter.outputDown">
+            <summary>
+            The component connected to the down output of the splitter.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Splitter.ConnectInput(FlowDiagramApplication.Component)">
+            <summary>
+            The method that connects the input component
+            </summary>
+            <param name="component">The component that is going to be connected.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Splitter.ConnectOutput(FlowDiagramApplication.Component)">
+            <summary>
+            The method that connects the first(up) output component
+            </summary>
+            <param name="component">The component that is going to be connected.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Splitter.ConnectSecondOutput(FlowDiagramApplication.Component)">
+            <summary>
+            The method that connects the second(down) output component
+            </summary>
+            <param name="component">The component that is going to be connected.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Splitter.DisconnectInput">
+            <summary>
+            The method that disconnects the input component.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Splitter.DisconnectOutput">
+            <summary>
+            The method that disconnects the first output component.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Splitter.DisconnectSecondOutput">
+            <summary>
+            The method that disconnects the second output component.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Splitter.#ctor(System.Drawing.Point,FlowDiagramApplication.ComponentType)">
+            <summary>
+            The constructor of the component.
+            </summary>
+            <param name="position">The initial position of the component.</param>
+            <param name="type">The type of the component.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Components.Splitter.ToString">
+            <summary>
+            The method that returns the info string of the component.
+            </summary>
+            <returns>Info string with the information about the component.</returns>
+        </member>
+        <member name="T:FlowDiagramApplication.Component">
+            <summary>
+            The main class that represents the Component object - this is the main class, 
+            which is inherited by the endpoint and middle components.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Component.id">
+            <summary>
+            Static id counter that is going to be incremented for each new component instance.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Component.currentId">
+            <summary>
+            The current component instance id.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Component.size">
+            <summary>
+            The size of the componenet picture.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Component.imagepath">
+            <summary>
+            The string for the imagepath of the component.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Component.image">
+            <summary>
+            The image of the component.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Component.componentType">
+            <summary>
+            The type of the component.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Component.position">
+            <summary>
+            The position of the top left corner of the component.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Component.#ctor(System.Drawing.Point,FlowDiagramApplication.ComponentType)">
+            <summary>
+            The constructor of the component.
+            </summary>
+            <param name="position">The initial position of the component.</param>
+            <param name="type">The type of the component.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Component.ToString">
+            <summary>
+            The method that is going to return the information for the component as a string.
+            </summary>
+            <returns>The info string of the component.</returns>
+        </member>
+        <member name="M:FlowDiagramApplication.Component.ChangePosition(System.Drawing.Point)">
+            <summary>
+            The method that saves a new position of the component.
+            </summary>
+            <param name="newposition">The coordinates of the new position.</param>
+        </member>
+        <member name="T:FlowDiagramApplication.EndpointComponent">
+            <summary>
+            The class representing the group of components that are endpoint components.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.EndpointComponent.connectedComponent">
+            <summary>
+            The component that is connected to the endpoint component.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.EndpointComponent.Connect(FlowDiagramApplication.Component)">
+            <summary>
+            The method that connects a component to the endpoint component.
+            </summary>
+            <param name="component">The component that is conencted.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.EndpointComponent.Disconnect">
+            <summary>
+            The method that disconnects a component from the endpoint component.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.EndpointComponent.#ctor(System.Drawing.Point,FlowDiagramApplication.ComponentType)">
+            <summary>
+            The constructor of the class.
+            </summary>
+            <param name="position">The initial position of the component.</param>
+            <param name="type">The type of the component.</param>
+        </member>
+        <member name="T:FlowDiagramApplication.MiddleComponent">
+            <summary>
+            The class representing the group of components that are endpoint components.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.MiddleComponent.inputComponent">
+            <summary>
+            The component that provides the input.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.MiddleComponent.outputComponent">
+            <summary>
+            The component that takes the output.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.MiddleComponent.ConnectInput(FlowDiagramApplication.Component)">
+            <summary>
+            The method that connects input component.
+            </summary>
+            <param name="component">The component that is going to be connected.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.MiddleComponent.ConnectOutput(FlowDiagramApplication.Component)">
+            <summary>
+            The method that connects output component.
+            </summary>
+            <param name="component">The component that is going to be connected.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.MiddleComponent.DisconnectInput">
+            <summary>
+            The method that disconnects input component.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.MiddleComponent.DisconnectOutput">
+            <summary>
+            The method that disconnects output component.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.MiddleComponent.#ctor(System.Drawing.Point,FlowDiagramApplication.ComponentType)">
+            <summary>
+            The constructor of the class
+            </summary>
+            <param name="position">The initial position of the component.</param>
+            <param name="type">The type of the component.</param>
+        </member>
+        <member name="T:FlowDiagramApplication.Pipeline">
+            <summary>
+            The class representing the pipeline component.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Pipeline.safetyLimit">
+            <summary>
+            The safety limit if of the pipeline.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Pipeline.currentFlow">
+            <summary>
+            The current flow in the pipeline.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Pipeline.inputElement">
+            <summary>
+            The component that provides the input.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Pipeline.outputElement">
+            <summary>
+            The component that receives the output.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Pipeline.ChangeSafetyLimit(System.Double)">
+            <summary>
+            The method that changes the safety limit of the pipeline.
+            </summary>
+            <param name="newLimit">The new safety limit of the pipeline.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Pipeline.#ctor(FlowDiagramApplication.Component,FlowDiagramApplication.Component)">
+            <summary>
+            The constructor of the pipeline.
+            </summary>
+            <param name="inputComponent">The component that provides the input.</param>
+            <param name="outputComponent">The component that receives the output.</param>
+        </member>
+        <member name="T:FlowDiagramApplication.Pump">
+            <summary>
+            The class representing the pump component.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Pump.output">
+            <summary>
+            The current output of the pump.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.Pump.capacity">
+            <summary>
+            The capacity of the pump.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Pump.#ctor(System.Drawing.Point,FlowDiagramApplication.ComponentType)">
+            <summary>
+            The constructor of the component.
+            </summary>
+            <param name="position">The initial position of the component.</param>
+            <param name="type">The type of the component.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Pump.Connect(FlowDiagramApplication.Component)">
+            <summary>
+            The method that connects the next component to the pump.
+            </summary>
+            <param name="component"></param>
+        </member>
+        <member name="M:FlowDiagramApplication.Pump.Disconnect">
+            <summary>
+            The method that disconnects the next component to the pump.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Pump.SetOutput(System.Double)">
+            <summary>
+            The method that sets the output of the pump.
+            </summary>
+            <param name="output">The output that is to be set.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Pump.SetCapacity(System.Double)">
+            <summary>
+            The method that sets the capacity of the pump.
+            </summary>
+            <param name="capacity">The capacity that is to be set.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Pump.ToString">
+            <summary>
+            The method that returns the info string of the component.
+            </summary>
+            <returns>Info string with the information about the component.</returns>
+        </member>
+        <member name="T:FlowDiagramApplication.ComponentType">
+            <summary>
+            Enumeration representing the different types of components in the flow diagram.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.ComponentType.Merger">
+            <summary>
+            The type of the component is merger.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.ComponentType.Splitter">
+            <summary>
+            The type of the component is splitter.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.ComponentType.AdjustableSplitter">
+            <summary>
+            The type of the component is adjustable splitter.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.ComponentType.Pump">
+            <summary>
+            The type of the component is pump.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.ComponentType.Sink">
+            <summary>
+            The type of the component is sink.
+            </summary>
+        </member>
+        <member name="T:FlowDiagramApplication.FlowDiagram">
+            <summary>
+            This is the main class that executes the logic of the flow diagram application.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.FlowDiagram.Components">
+            <summary>
+            The list of all the components in the flow diagram.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.FlowDiagram.Connections">
+            <summary>
+            The list of all the connections in the flow diagram.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.FlowDiagram.totalFlow">
+            <summary>
+            The total flow in the flow diagram.
+            </summary>
+        </member>
+        <member name="F:FlowDiagramApplication.FlowDiagram.generalSafetyLimit">
+            <summary>
+            The general safety limit in the flow diagram.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.FlowDiagram.CalculateFlow">
+            <summary>
+            The method that calculates the current flow in the flow diagram.
+            </summary>
+            <returns>The current flow in the flow diagram as a double</returns>
+        </member>
+        <member name="M:FlowDiagramApplication.FlowDiagram.DrawFlowDiagram(FlowDiagramApplication.FlowDiagram)">
+            <summary>
+            The method that draws a flow diagram in the drawing space.
+            </summary>
+            <param name="fd">The flow diagram that is to be drawn.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.FlowDiagram.ClearFlowDiagram">
+            <summary>
+            The method that clears the flow diagram from the drawing space.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.FlowDiagram.SaveToFile(System.String)">
+            <summary>
+            The method that serializes the flow diagram and saves it to a file.
+            </summary>
+            <param name="filename">The name of the file that is to be saved.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.FlowDiagram.LoadFromFile(System.String)">
+            <summary>
+            The method that loads a file and deserializes a flow diagram from it. 
+            </summary>
+            <param name="filename">The file that is to be loaded.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.FlowDiagram.AddComponent(System.Drawing.Point,FlowDiagramApplication.ComponentType)">
+            <summary>
+            The method that adds a component to the list with components.
+            </summary>
+            <param name="position">The position of the component.</param>
+            <param name="type">The type of the component.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.FlowDiagram.DeleteComponent(FlowDiagramApplication.Component)">
+            <summary>
+            The method that is deleting a component from the list of components.
+            </summary>
+            <param name="component">The component that is to be deleted.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.FlowDiagram.ChangeComponentPosition(System.Drawing.Point,FlowDiagramApplication.Component)">
+            <summary>
+            The method that changes the position of a component.
+            </summary>
+            <param name="position">The new position for the component</param>
+            <param name="component">The component that is going to have its 
+            position changed.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.FlowDiagram.Connect(FlowDiagramApplication.Component,FlowDiagramApplication.Component)">
+            <summary>
+            The method that makes a connection between two components.
+            </summary>
+            <param name="connectTo">The second component that is to be connected.</param>
+            <param name="connectFrom">The first component that is to be connected.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.FlowDiagram.Disconnect(FlowDiagramApplication.Component,FlowDiagramApplication.Component)">
+            <summary>
+            The method that deletes a connection between two components.
+            </summary>
+            <param name="first">The first component that is to be disconnected.</param>
+            <param name="second">The second component that is to be disconnected.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.FlowDiagram.ChangeCapacity(FlowDiagramApplication.Component)">
+            <summary>
+            The method that changes the capacity of a component.
+            </summary>
+            <param name="component">The component that is going to have its capacity 
+            changed.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.FlowDiagram.ChangeCurrentFlow(FlowDiagramApplication.Component)">
+            <summary>
+            The method that changes the current flow of a component.
+            </summary>
+            <param name="component">The component that is going to have its current
+            flow changed.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.FlowDiagram.ChangeSafetyLimitGeneral(System.Double)">
+            <summary>
+            The method that changes the general safety limit.
+            </summary>
+            <param name="newLimit">The new safety limit.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.FlowDiagram.ChangeSafetyLimit(System.Double,FlowDiagramApplication.Component)">
+            <summary>
+            The method that changes the safety limit of a concrete component.
+            </summary>
+            <param name="newLimit">The new safety limit.</param>
+            <param name="component">The component that is going to have its
+            safety limit changed.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.FlowDiagram.ChangeSplitterDivisionRate(System.Double,FlowDiagramApplication.Component)">
+            <summary>
+            The method that changes the division rate of a splitter.
+            </summary>
+            <param name="rate">The new rate that is going to be set.</param>
+            <param name="component">The component that is going to have its division 
+            rate changed.</param>
+        </member>
+        <member name="F:FlowDiagramApplication.Form1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Form1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FlowDiagramApplication.Form1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FlowDiagramApplication.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:FlowDiagramApplication.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:FlowDiagramApplication.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:FlowDiagramApplication.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>
