@@ -10,7 +10,7 @@ namespace FlowDiagramApplication.Components
     /// <summary>
     /// The class representing the adjustable splitter component.
     /// </summary>
-    class AdjustableSplitter:MiddleComponent
+    public class AdjustableSplitter:MiddleComponent
     {
         /// <summary>
         /// The division rate of the adjustable splitter. 

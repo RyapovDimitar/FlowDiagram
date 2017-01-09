@@ -24,6 +24,18 @@ namespace FlowDiagramApplication
         private int currentId;
 
         /// <summary>
+        /// The current component instance id.
+        /// TODO: Add in the classes description.
+        /// </summary>
+        public int CurrentId
+        {
+            get
+            {
+                return this.currentId;
+            }
+        }
+
+        /// <summary>
         /// The size of the componenet picture.
         /// </summary>
         private static Size size = new Size(20,30);
