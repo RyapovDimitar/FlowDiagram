@@ -18,16 +18,6 @@ namespace FlowDiagramApplication.Components
         private double divisionRate;
 
         /// <summary>
-        /// The component connected to the up output of the splitter.
-        /// </summary>
-        private int outputUp;
-
-        /// <summary>
-        /// The component connected to the down output of the splitter.
-        /// </summary>
-        private int outputDown;
-
-        /// <summary>
         /// The method that connects second(down) output component
         /// </summary>
         /// <param name="component">The component that is going to be connected.</param>

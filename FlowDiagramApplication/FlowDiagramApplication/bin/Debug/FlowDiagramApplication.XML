@@ -14,16 +14,6 @@
             The division rate of the adjustable splitter. 
             </summary>
         </member>
-        <member name="F:FlowDiagramApplication.Components.AdjustableSplitter.outputUp">
-            <summary>
-            The component connected to the up output of the splitter.
-            </summary>
-        </member>
-        <member name="F:FlowDiagramApplication.Components.AdjustableSplitter.outputDown">
-            <summary>
-            The component connected to the down output of the splitter.
-            </summary>
-        </member>
         <member name="M:FlowDiagramApplication.Components.AdjustableSplitter.ConnectSecondOutput(FlowDiagramApplication.Component)">
             <summary>
             The method that connects second(down) output component
@@ -81,16 +71,6 @@
             The class representing the Merger component.
             </summary>
         </member>
-        <member name="F:FlowDiagramApplication.Components.Merger.inputUp">
-            <summary>
-            The component connected to the up input of the merger.
-            </summary>
-        </member>
-        <member name="F:FlowDiagramApplication.Components.Merger.inputDown">
-            <summary>
-            The component connected to the down input of the merger.
-            </summary>
-        </member>
         <member name="M:FlowDiagramApplication.Components.Merger.ConnectInput(FlowDiagramApplication.Component)">
             <summary>
             The method that connects first(up) input component
@@ -144,7 +124,7 @@
         </member>
         <member name="F:FlowDiagramApplication.Components.Sink.input">
             <summary>
-            The input of the sink.
+            The input flow of the sink.
             </summary>
         </member>
         <member name="M:FlowDiagramApplication.Components.Sink.#ctor(System.Drawing.Point,FlowDiagramApplication.ComponentType)">
@@ -174,16 +154,6 @@
         <member name="T:FlowDiagramApplication.Components.Splitter">
             <summary>
             The class representing the Splitter component.
-            </summary>
-        </member>
-        <member name="F:FlowDiagramApplication.Components.Splitter.outputUp">
-            <summary>
-            The component connected to the up output of the splitter.
-            </summary>
-        </member>
-        <member name="F:FlowDiagramApplication.Components.Splitter.outputDown">
-            <summary>
-            The component connected to the down output of the splitter.
             </summary>
         </member>
         <member name="M:FlowDiagramApplication.Components.Splitter.ConnectInput(FlowDiagramApplication.Component)">
@@ -297,11 +267,6 @@
             The class representing the group of components that are endpoint components.
             </summary>
         </member>
-        <member name="F:FlowDiagramApplication.EndpointComponent.connectedComponent">
-            <summary>
-            The component that is connected to the endpoint component.
-            </summary>
-        </member>
         <member name="M:FlowDiagramApplication.EndpointComponent.Connect(FlowDiagramApplication.Component)">
             <summary>
             The method that connects a component to the endpoint component.
@@ -323,16 +288,6 @@
         <member name="T:FlowDiagramApplication.MiddleComponent">
             <summary>
             The class representing the group of components that are endpoint components.
-            </summary>
-        </member>
-        <member name="F:FlowDiagramApplication.MiddleComponent.inputComponent">
-            <summary>
-            The component that provides the input.
-            </summary>
-        </member>
-        <member name="F:FlowDiagramApplication.MiddleComponent.outputComponent">
-            <summary>
-            The component that takes the output.
             </summary>
         </member>
         <member name="M:FlowDiagramApplication.MiddleComponent.ConnectInput(FlowDiagramApplication.Component)">
