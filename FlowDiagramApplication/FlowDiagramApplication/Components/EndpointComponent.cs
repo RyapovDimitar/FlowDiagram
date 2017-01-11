@@ -13,11 +13,6 @@ namespace FlowDiagramApplication
     public abstract class EndpointComponent:Component
     {
         /// <summary>
-        /// The component that is connected to the endpoint component.
-        /// </summary>
-        public Component connectedComponent;
-
-        /// <summary>
         /// The method that connects a component to the endpoint component.
         /// </summary>
         /// <param name="component">The component that is conencted.</param>

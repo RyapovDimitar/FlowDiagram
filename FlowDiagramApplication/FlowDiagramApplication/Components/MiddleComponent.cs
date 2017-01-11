@@ -13,16 +13,6 @@ namespace FlowDiagramApplication
     public abstract class MiddleComponent:Component
     {
         /// <summary>
-        /// The component that provides the input.
-        /// </summary>
-        public Component inputComponent;
-
-        /// <summary>
-        /// The component that takes the output.
-        /// </summary>
-        public Component outputComponent;
-
-        /// <summary>
         /// The method that connects input component.
         /// </summary>
         /// <param name="component">The component that is going to be connected.</param>

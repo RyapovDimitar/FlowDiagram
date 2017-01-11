@@ -13,16 +13,6 @@ namespace FlowDiagramApplication.Components
     public class Merger : MiddleComponent
     {
         /// <summary>
-        /// The component connected to the up input of the merger.
-        /// </summary>
-        private int inputUp;
-
-        /// <summary>
-        /// The component connected to the down input of the merger.
-        /// </summary>
-        private int inputDown;
-
-        /// <summary>
         /// The method that connects first(up) input component
         /// </summary>
         /// <param name="component">The component that is going to be connected.</param>
