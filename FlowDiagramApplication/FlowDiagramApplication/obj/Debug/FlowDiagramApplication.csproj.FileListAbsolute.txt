@@ -7,3 +7,13 @@ c:\users\az\documents\visual studio 2015\Projects\FlowDiagramApplication\FlowDia
 c:\users\az\documents\visual studio 2015\Projects\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.exe
 c:\users\az\documents\visual studio 2015\Projects\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.pdb
 c:\users\az\documents\visual studio 2015\Projects\FlowDiagramApplication\FlowDiagramApplication\bin\Debug\FlowDiagramApplication.XML
+D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\bin\Debug\FlowDiagramApplication.exe.config
+D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\bin\Debug\FlowDiagramApplication.XML
+D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.exe
+D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.pdb
+D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\bin\Debug\FlowDiagramApplication.exe
+D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\bin\Debug\FlowDiagramApplication.pdb
+D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.csprojResolveAssemblyReference.cache
+D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.Form1.resources
+D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.Properties.Resources.resources
+D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.csproj.GenerateResource.Cache

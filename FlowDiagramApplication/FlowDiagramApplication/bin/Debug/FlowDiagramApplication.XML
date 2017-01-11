@@ -144,7 +144,7 @@
         </member>
         <member name="F:FlowDiagramApplication.Components.Sink.input">
             <summary>
-            The input of the sink.
+            The input flow of the sink.
             </summary>
         </member>
         <member name="M:FlowDiagramApplication.Components.Sink.#ctor(System.Drawing.Point,FlowDiagramApplication.ComponentType)">
