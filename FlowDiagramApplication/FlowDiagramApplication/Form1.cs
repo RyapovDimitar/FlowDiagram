@@ -24,12 +24,17 @@ namespace FlowDiagramApplication
             fl.Components = new List<Component>();
         }
 
-        private void btnProperties_Click(object sender, EventArgs e)
+        private void btnDelete_Click(object sender, EventArgs e)
         {
             ToolstripButtonCheck(sender);
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            ToolstripButtonCheck(sender);
+        }
+
+        private void btnProperties_Click(object sender, EventArgs e)
         {
             ToolstripButtonCheck(sender);
         }
@@ -76,5 +81,7 @@ namespace FlowDiagramApplication
                 }
             }
         }
+
+        
     }
 }

@@ -41,18 +41,20 @@
             this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.btnSelect = new System.Windows.Forms.ToolStripButton();
+            this.btnDelete = new System.Windows.Forms.ToolStripButton();
             this.btnPump = new System.Windows.Forms.ToolStripButton();
             this.btnSink = new System.Windows.Forms.ToolStripButton();
             this.btnSplitter = new System.Windows.Forms.ToolStripButton();
             this.btnAdjSplitter = new System.Windows.Forms.ToolStripButton();
             this.btnMerger = new System.Windows.Forms.ToolStripButton();
             this.btnPipeline = new System.Windows.Forms.ToolStripButton();
-            this.btnDelete = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mainMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -140,7 +142,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(134, 716);
+            this.panel1.Size = new System.Drawing.Size(134, 631);
             this.panel1.TabIndex = 4;
             // 
             // toolStrip1
@@ -162,21 +164,50 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(100, 698);
+            this.toolStrip1.Size = new System.Drawing.Size(100, 630);
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Margin = new System.Windows.Forms.Padding(5, 10, 5, 2);
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(88, 24);
+            this.toolStripButton1.Text = "Properties";
+            // 
             // btnSelect
             // 
-            this.btnSelect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnSelect.CheckOnClick = true;
             this.btnSelect.Image = ((System.Drawing.Image)(resources.GetObject("btnSelect.Image")));
-            this.btnSelect.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSelect.Margin = new System.Windows.Forms.Padding(5, 10, 5, 2);
+            this.btnSelect.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnSelect.ImageTransparentColor = System.Drawing.Color.White;
+            this.btnSelect.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(88, 24);
+            this.btnSelect.Tag = "Select";
             this.btnSelect.Text = "Select";
-            this.btnSelect.Click += new System.EventHandler(this.btnProperties_Click);
+            this.btnSelect.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSelect.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.CheckOnClick = true;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnDelete.ImageTransparentColor = System.Drawing.Color.White;
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(88, 24);
+            this.btnDelete.Tag = "Delete";
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelete.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnPump
             // 
@@ -186,7 +217,7 @@
             this.btnPump.ImageTransparentColor = System.Drawing.Color.White;
             this.btnPump.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.btnPump.Name = "btnPump";
-            this.btnPump.Size = new System.Drawing.Size(88, 74);
+            this.btnPump.Size = new System.Drawing.Size(88, 64);
             this.btnPump.Tag = "Pump";
             this.btnPump.Text = "Pump";
             this.btnPump.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
@@ -201,7 +232,7 @@
             this.btnSink.ImageTransparentColor = System.Drawing.Color.White;
             this.btnSink.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.btnSink.Name = "btnSink";
-            this.btnSink.Size = new System.Drawing.Size(88, 74);
+            this.btnSink.Size = new System.Drawing.Size(88, 64);
             this.btnSink.Tag = "Sink";
             this.btnSink.Text = "Sink";
             this.btnSink.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
@@ -217,7 +248,7 @@
             this.btnSplitter.ImageTransparentColor = System.Drawing.Color.White;
             this.btnSplitter.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.btnSplitter.Name = "btnSplitter";
-            this.btnSplitter.Size = new System.Drawing.Size(88, 74);
+            this.btnSplitter.Size = new System.Drawing.Size(88, 64);
             this.btnSplitter.Tag = "Splitter";
             this.btnSplitter.Text = "Splitter";
             this.btnSplitter.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
@@ -232,7 +263,7 @@
             this.btnAdjSplitter.ImageTransparentColor = System.Drawing.Color.White;
             this.btnAdjSplitter.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.btnAdjSplitter.Name = "btnAdjSplitter";
-            this.btnAdjSplitter.Size = new System.Drawing.Size(88, 74);
+            this.btnAdjSplitter.Size = new System.Drawing.Size(88, 64);
             this.btnAdjSplitter.Tag = "Adj. splitter";
             this.btnAdjSplitter.Text = "Adj. splitter";
             this.btnAdjSplitter.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
@@ -247,7 +278,7 @@
             this.btnMerger.ImageTransparentColor = System.Drawing.Color.White;
             this.btnMerger.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.btnMerger.Name = "btnMerger";
-            this.btnMerger.Size = new System.Drawing.Size(88, 74);
+            this.btnMerger.Size = new System.Drawing.Size(88, 64);
             this.btnMerger.Tag = "Merger";
             this.btnMerger.Text = "Merger";
             this.btnMerger.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
@@ -262,42 +293,31 @@
             this.btnPipeline.ImageTransparentColor = System.Drawing.Color.White;
             this.btnPipeline.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.btnPipeline.Name = "btnPipeline";
-            this.btnPipeline.Size = new System.Drawing.Size(88, 74);
+            this.btnPipeline.Size = new System.Drawing.Size(88, 64);
             this.btnPipeline.Tag = "Pipeline";
             this.btnPipeline.Text = "Pipeline";
             this.btnPipeline.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.btnPipeline.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnPipeline.Click += new System.EventHandler(this.btnPipeline_Click);
             // 
-            // btnDelete
+            // pictureBox1
             // 
-            this.btnDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
-            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(5, 10, 5, 2);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(88, 24);
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Margin = new System.Windows.Forms.Padding(5, 10, 5, 2);
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(88, 24);
-            this.toolStripButton1.Text = "Properties";
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox1.Location = new System.Drawing.Point(167, 54);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(661, 565);
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 744);
+            this.ClientSize = new System.Drawing.Size(861, 659);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mainMenu);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.mainMenu.ResumeLayout(false);
@@ -306,6 +326,7 @@
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,15 +346,16 @@
         private System.Windows.Forms.ToolStripMenuItem propertiesToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnSelect;
         private System.Windows.Forms.ToolStripButton btnPump;
         private System.Windows.Forms.ToolStripButton btnSink;
         private System.Windows.Forms.ToolStripButton btnSplitter;
         private System.Windows.Forms.ToolStripButton btnAdjSplitter;
         private System.Windows.Forms.ToolStripButton btnMerger;
         private System.Windows.Forms.ToolStripButton btnPipeline;
-        private System.Windows.Forms.ToolStripButton btnDelete;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripButton btnSelect;
+        private System.Windows.Forms.ToolStripButton btnDelete;
     }
 }
 
