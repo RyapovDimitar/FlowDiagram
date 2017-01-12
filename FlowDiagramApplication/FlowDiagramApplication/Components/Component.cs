@@ -47,6 +47,13 @@ namespace FlowDiagramApplication
         /// The position of the top left corner of the component.
         /// </summary>
         private System.Drawing.Point position;
+        public System.Drawing.Point Position
+        {
+            get
+            {
+                return this.position;
+            }
+        }
 
         /// <summary>
         /// The constructor of the component.

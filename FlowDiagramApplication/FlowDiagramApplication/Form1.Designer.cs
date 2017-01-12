@@ -50,16 +50,16 @@
             this.btnAdjSplitter = new System.Windows.Forms.ToolStripButton();
             this.btnMerger = new System.Windows.Forms.ToolStripButton();
             this.btnPipeline = new System.Windows.Forms.ToolStripButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbCanvas = new System.Windows.Forms.PictureBox();
             this.mainMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCanvas)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(186, 159);
+            this.button1.Location = new System.Drawing.Point(167, 625);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -300,14 +300,15 @@
             this.btnPipeline.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnPipeline.Click += new System.EventHandler(this.btnPipeline_Click);
             // 
-            // pictureBox1
+            // pbCanvas
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox1.Location = new System.Drawing.Point(167, 54);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(661, 565);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.pbCanvas.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pbCanvas.Location = new System.Drawing.Point(167, 54);
+            this.pbCanvas.Name = "pbCanvas";
+            this.pbCanvas.Size = new System.Drawing.Size(661, 565);
+            this.pbCanvas.TabIndex = 5;
+            this.pbCanvas.TabStop = false;
+            this.pbCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pbCanvas_Paint);
             // 
             // Form1
             // 
@@ -317,7 +318,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mainMenu);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbCanvas);
             this.Name = "Form1";
             this.Text = "Form1";
             this.mainMenu.ResumeLayout(false);
@@ -326,7 +327,7 @@
             this.panel1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCanvas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,9 +354,9 @@
         private System.Windows.Forms.ToolStripButton btnMerger;
         private System.Windows.Forms.ToolStripButton btnPipeline;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripButton btnSelect;
         private System.Windows.Forms.ToolStripButton btnDelete;
+        private System.Windows.Forms.PictureBox pbCanvas;
     }
 }
 
