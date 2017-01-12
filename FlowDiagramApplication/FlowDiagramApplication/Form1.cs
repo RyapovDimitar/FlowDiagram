@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FlowDiagramApplication.Components;
 
 namespace FlowDiagramApplication
 {
@@ -17,12 +18,34 @@ namespace FlowDiagramApplication
         {
             InitializeComponent();
             fl = new FlowDiagram();
+
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Bitmap DrawArea = new Bitmap(pbCanvas.Size.Width, pbCanvas.Size.Height);
+            pbCanvas.Image = DrawArea;
+
             fl.Components = new List<Component>();
+            Point random = new Point(20, 20);
+            Point random2 = new Point(450, 200);
+            Pump myPump = new Pump(random, ComponentType.Pump);
+            Sink mySink = new Sink(random2, ComponentType.Sink);
+            fl.Components.Add(myPump);
+            fl.Components.Add(mySink);
+            pbCanvas.Invalidate();
         }
+
+        private void pbCanvas_Paint(object sender, PaintEventArgs e)
+        {
+            if (fl.Components != null)
+                foreach (Component component in fl.Components)
+                {
+                    e.Graphics.DrawEllipse(new Pen(Color.Red, 2f),component.Position.X, component.Position.Y, 20, 20);
+                }
+        }
+
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -82,6 +105,5 @@ namespace FlowDiagramApplication
             }
         }
 
-        
     }
 }
