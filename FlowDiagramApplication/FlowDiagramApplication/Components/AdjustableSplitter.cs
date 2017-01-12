@@ -93,7 +93,7 @@ namespace FlowDiagramApplication.Components
         /// <param name="type">The type of the component.</param>
         public AdjustableSplitter(Point position, ComponentType type) : base(position, type)
         {
-
+            image = Image.FromFile("D:/Fontys/OOD2/Project/Pipeline app design/Adj. SplitterIcon.PNG");
         }
     }
 }
