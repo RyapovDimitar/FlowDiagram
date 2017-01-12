@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FlowDiagramApplication.Components;
 
 namespace FlowDiagramApplication
 {
@@ -15,12 +16,12 @@ namespace FlowDiagramApplication
         /// <summary>
         /// The list of all the components in the flow diagram.
         /// </summary>
-        public List<Component> Components;
+        public List<Component> Components = new List<Component>();
 
         /// <summary>
         /// The list of all the connections in the flow diagram.
         /// </summary>
-        public List<Pipeline> Connections;
+        public List<Pipeline> Connections = new List<Pipeline>();
 
         /// <summary>
         /// The total flow in the flow diagram.
@@ -83,7 +84,32 @@ namespace FlowDiagramApplication
         /// <param name="type">The type of the component.</param>
         public void AddComponent(Point position, ComponentType type)
         {
-
+            Merger merger;
+            switch (type)
+            {
+                case ComponentType.Merger:
+                    merger = new Merger(position, type);
+                    Components.Add(merger);
+                    break;
+                case ComponentType.Splitter:
+                    Splitter splitter = new Splitter(position, type);
+                    Components.Add(splitter);
+                    break;
+                case ComponentType.AdjustableSplitter:
+                    AdjustableSplitter adjustableSplitter = new AdjustableSplitter(position, type);
+                    Components.Add(adjustableSplitter);
+                    break;
+                case ComponentType.Pump:
+                    Pump pump = new Pump(position, type);
+                    Components.Add(pump);
+                    break;
+                case ComponentType.Sink:
+                    Sink sink = new Sink(position, type);
+                    Components.Add(sink);
+                    break;
+                default:
+                    break;
+            }
         }
 
         /// <summary>

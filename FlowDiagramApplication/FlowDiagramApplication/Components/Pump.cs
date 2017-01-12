@@ -30,6 +30,7 @@ namespace FlowDiagramApplication
         public Pump(Point position, ComponentType type) : base(position, type)
         {
             image = Image.FromFile("D:/Fontys/OOD2/Project/Pipeline app design/PumpIcon.PNG");
+            this.currentId = Component.id;
         }
 
         /// <summary>

@@ -14,28 +14,28 @@ namespace FlowDiagramApplication
     public partial class Form1 : Form
     {
         FlowDiagram fl;
+        ToolType tool;
+
+        private enum ToolType
+        {
+            select,
+            delete,
+            addSink,
+            addPump,
+            addMerger,
+            addAdjSplitter,
+            addSplitter,
+            addPipeline
+        }
         public Form1()
         {
             InitializeComponent();
             fl = new FlowDiagram();
-
+            tool = ToolType.select;
+            btnSelect.Checked = true;
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Bitmap DrawArea = new Bitmap(pbCanvas.Size.Width, pbCanvas.Size.Height);
-            pbCanvas.Image = DrawArea;
-
-            fl.Components = new List<Component>();
-            Point random = new Point(20, 20);
-            Point random2 = new Point(450, 200);
-            Pump myPump = new Pump(random, ComponentType.Pump);
-            Merger mySink = new Merger(random2, ComponentType.Merger);
-            fl.Components.Add(myPump);
-            fl.Components.Add(mySink);
-            pbCanvas.Invalidate();
-        }
 
         private void pbCanvas_Paint(object sender, PaintEventArgs e)
         {
@@ -62,7 +62,6 @@ namespace FlowDiagramApplication
                         case ComponentType.Merger:
                             e.Graphics.DrawImage(component.Image, component.Position);
                             break;
-
                     }
                     
                 }
@@ -72,11 +71,14 @@ namespace FlowDiagramApplication
         private void btnDelete_Click(object sender, EventArgs e)
         {
             ToolstripButtonCheck(sender);
+            tool = ToolType.delete;
+
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
             ToolstripButtonCheck(sender);
+            tool = ToolType.select;
         }
 
         private void btnProperties_Click(object sender, EventArgs e)
@@ -87,36 +89,42 @@ namespace FlowDiagramApplication
         private void btnPump_Click(object sender, EventArgs e)
         {
             ToolstripButtonCheck(sender);
+            tool = ToolType.addPump;
         }
 
         private void btnSink_Click(object sender, EventArgs e)
         {
             ToolstripButtonCheck(sender);
+            tool = ToolType.addSink;
         }
 
         private void btnSplitter_Click(object sender, EventArgs e)
         {
             ToolstripButtonCheck(sender);
+            tool = ToolType.addSplitter;
         }
 
         private void btnAdjSplitter_Click(object sender, EventArgs e)
         {
             ToolstripButtonCheck(sender);
+            tool = ToolType.addAdjSplitter;
         }
 
         private void btnMerger_Click(object sender, EventArgs e)
         {
             ToolstripButtonCheck(sender);
+            tool = ToolType.addMerger;
         }
 
         private void btnPipeline_Click(object sender, EventArgs e)
         {
             ToolstripButtonCheck(sender);
+            tool = ToolType.addPipeline;
         }
 
         private void ToolstripButtonCheck(object sender)
         {
-            // This method makes the other buttons in the toolstrip uncheck when one button is selected
+            // This makes the clicked button checked, and unchecks the other buttons
             foreach (ToolStripButton item in ((ToolStripButton)sender).GetCurrentParent().Items)
             {
                 if (item == sender) item.Checked = true;
@@ -127,5 +135,37 @@ namespace FlowDiagramApplication
             }
         }
 
+        private void pbCanvas_Click(object sender, EventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            Point position = me.Location;
+            switch (tool)
+            {
+                case ToolType.select:
+                    break;
+                case ToolType.delete:
+                    break;
+                case ToolType.addSink:
+                    fl.AddComponent(position, ComponentType.Sink);
+                    break;
+                case ToolType.addPump:
+                    fl.AddComponent(position, ComponentType.Pump);
+                    break;
+                case ToolType.addMerger:
+                    fl.AddComponent(position, ComponentType.Merger);
+                    break;
+                case ToolType.addAdjSplitter:
+                    fl.AddComponent(position, ComponentType.AdjustableSplitter);
+                    break;
+                case ToolType.addSplitter:
+                    fl.AddComponent(position, ComponentType.Splitter);
+                    break;
+                case ToolType.addPipeline:
+                    break;
+                default:
+                    break;
+            }
+            pbCanvas.Invalidate();
+        }
     }
 }

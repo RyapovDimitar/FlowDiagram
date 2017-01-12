@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.button1 = new System.Windows.Forms.Button();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,16 +55,6 @@
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCanvas)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(167, 625);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // mainMenu
             // 
@@ -308,6 +297,7 @@
             this.pbCanvas.Size = new System.Drawing.Size(661, 565);
             this.pbCanvas.TabIndex = 5;
             this.pbCanvas.TabStop = false;
+            this.pbCanvas.Click += new System.EventHandler(this.pbCanvas_Click);
             this.pbCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pbCanvas_Paint);
             // 
             // Form1
@@ -317,7 +307,6 @@
             this.ClientSize = new System.Drawing.Size(861, 659);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mainMenu);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pbCanvas);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -334,8 +323,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MenuStrip mainMenu;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
