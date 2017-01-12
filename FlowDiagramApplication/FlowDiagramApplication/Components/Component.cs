@@ -21,27 +21,41 @@ namespace FlowDiagramApplication
         /// <summary>
         /// The current component instance id.
         /// </summary>
-        private int currentId;
+        protected int currentId;
 
         /// <summary>
         /// The size of the componenet picture.
         /// </summary>
-        private static Size size = new Size(20,30);
+        protected static Size size = new Size(20,30);
 
         /// <summary>
         /// The string for the imagepath of the component.
         /// </summary>
-        private string imagepath;
+        protected string imagepath;
 
         /// <summary>
         /// The image of the component.
         /// </summary>
-        private Image image;
+        protected Image image;
+        /// <summary>
+        /// The image of the component.
+        /// </summary>
+        public Image Image
+        {
+            get { return image; }
+        }
+        /// <summary>
+        /// The type of the component.
+        /// </summary>
+        protected ComponentType componentType;
 
         /// <summary>
         /// The type of the component.
         /// </summary>
-        private ComponentType componentType;
+        public ComponentType ComponentType
+        {
+            get { return componentType; }
+        }
 
         /// <summary>
         /// The position of the top left corner of the component.
