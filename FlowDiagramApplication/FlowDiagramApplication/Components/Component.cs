@@ -16,7 +16,7 @@ namespace FlowDiagramApplication
         /// <summary>
         /// Static id counter that is going to be incremented for each new component instance.
         /// </summary>
-        static int id=0;
+        protected static int id=0;
 
         /// <summary>
         /// The current component instance id.
@@ -78,6 +78,8 @@ namespace FlowDiagramApplication
         {
             this.position = position;
             this.componentType = type;
+            id++;
+            currentId = id;
         }
 
         /// <summary>
@@ -87,7 +89,7 @@ namespace FlowDiagramApplication
         public override string ToString()
         {
             //TODO
-            return "The component is" + this.componentType.ToString() + "...";
+            return "The component is " + this.componentType.ToString() + " " + Convert.ToString(position);
         }
 
         /// <summary>
