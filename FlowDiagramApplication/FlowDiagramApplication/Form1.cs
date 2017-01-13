@@ -15,6 +15,7 @@ namespace FlowDiagramApplication
     {
         FlowDiagram fl;
         ToolType tool;
+        private int halfSize = 20;
 
         private enum ToolType
         {
@@ -39,7 +40,7 @@ namespace FlowDiagramApplication
 
         private void pbCanvas_Paint(object sender, PaintEventArgs e)
         {
-            
+            // Drawing the components
             if (fl.Components != null)
                 foreach (Component component in fl.Components)
                 {
@@ -135,16 +136,68 @@ namespace FlowDiagramApplication
             }
         }
 
+        private String CheckMousePosition (Point mousePosition)
+        {
+            String result = "";
+            foreach (Component component in fl.Components)
+            {
+                if(component.Position.X + halfSize >= mousePosition.X && component.Position.X - halfSize <= mousePosition.X && component.Position.Y - halfSize <= mousePosition.Y && component.Position.Y + halfSize >= mousePosition.Y) 
+                {
+                    result = "Component," + Convert.ToString(component.GetId());
+                    return result;
+                }
+            }
+
+            //TODO Check if the position is over a pipeline
+
+            return null;
+        }
+
+        private bool CheckComponentOverlay(Point mousePosition)
+        {
+            Point leftUp = mousePosition, rightUp = mousePosition, leftDown = mousePosition, rightDown = mousePosition;
+            leftUp.X -= halfSize;
+            leftUp.Y -= halfSize;
+
+            rightUp.X += halfSize;
+            rightUp.Y -= halfSize;
+
+            leftDown.X -= halfSize;
+            leftDown.Y += halfSize;
+
+            rightDown.X += halfSize;
+            rightDown.Y += halfSize;
+            if (CheckMousePosition(leftUp) != null || CheckMousePosition(rightUp) != null || CheckMousePosition(leftDown) != null || CheckMousePosition(rightDown) != null)
+                return true;
+            return false;
+        }
+
         private void pbCanvas_Click(object sender, EventArgs e)
         {
             MouseEventArgs me = (MouseEventArgs)e;
+            String selected = "";
             Point position = me.Location;
+            position.X -= halfSize;
+            position.Y -= halfSize;
+
             switch (tool)
             {
                 case ToolType.select:
+                    selected = CheckMousePosition(position);
+                    string[] str = selected.Split(new[] { ',' });
+                    if (str[0] == "Component")
+                    {
+                        SelectComponent(Convert.ToInt32(str[1]));
+                    }
                     break;
                 case ToolType.delete:
-                    break;
+                    selected = CheckMousePosition(position);
+                    str = selected.Split(new[] { ',' });
+                    if (str[0] == "Component")
+                    {
+                        DeleteComponent(Convert.ToInt32(str[1]));
+                    }
+                        break;
                 case ToolType.addSink:
                     fl.AddComponent(position, ComponentType.Sink);
                     break;
@@ -166,6 +219,29 @@ namespace FlowDiagramApplication
                     break;
             }
             pbCanvas.Invalidate();
+        }
+        private void SelectComponent(int componentId)
+        {
+            Component component;
+            foreach (Component comp in fl.Components)
+            {
+                if (comp.GetId() == componentId)
+                {
+                    component = comp;
+                }
+            }
+        }
+        private void DeleteComponent(int componentId)
+        {
+            Component toDelete = null;
+            foreach (Component component in fl.Components)
+            {
+                if (component.GetId() == componentId)
+                {
+                    toDelete = component;
+                }
+            }
+            fl.DeleteComponent(toDelete);
         }
     }
 }
