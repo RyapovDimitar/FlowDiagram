@@ -89,5 +89,9 @@ namespace FlowDiagramApplication
         {
             this.position = newposition;
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/Andi
     }
 }
