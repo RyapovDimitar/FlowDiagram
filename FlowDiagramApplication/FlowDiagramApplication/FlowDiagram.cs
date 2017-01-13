@@ -13,15 +13,22 @@ namespace FlowDiagramApplication
     /// </summary>
     class FlowDiagram
     {
+        public FlowDiagram()
+        {
+            this.Components = new List<Component>();
+            this.Connections = new List<Pipeline>();
+            this.totalFlow = 0;
+            this.generalSafetyLimit = 0;
+        }
         /// <summary>
         /// The list of all the components in the flow diagram.
         /// </summary>
-        public List<Component> Components = new List<Component>();
+        public List<Component> Components;
 
         /// <summary>
         /// The list of all the connections in the flow diagram.
         /// </summary>
-        public List<Pipeline> Connections = new List<Pipeline>();
+        public List<Pipeline> Connections;
 
         /// <summary>
         /// The total flow in the flow diagram.
