@@ -110,9 +110,20 @@ namespace FlowDiagramApplication
         /// The method that is deleting a component from the list of components.
         /// </summary>
         /// <param name="component">The component that is to be deleted.</param>
-        public void DeleteComponent(Component component)
+        public bool DeleteComponent(Component component)
         {
-            Components.Remove(component);
+            var componentFound = this.Components
+                .Where(x => x.CurrentId == component.CurrentId)
+                .Select(x => x).First();
+            for (int i = 0; i < this.Components.Count; i++)
+            {
+                if (this.Components.ElementAt(i).CurrentId == componentFound.CurrentId)
+                {
+                    this.Components.RemoveAt(i);
+                    return true;
+                }
+            }
+            return false;
         }
 
         /// <summary>
