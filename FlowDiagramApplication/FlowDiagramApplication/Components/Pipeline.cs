@@ -27,9 +27,33 @@ namespace FlowDiagramApplication
         private Component inputElement;
 
         /// <summary>
+        /// The public getter of the input element.
+        /// TODO: To be added in the class description.
+        /// </summary>
+        public Component InputElement
+        {
+            get
+            {
+                return this.inputElement;
+            }
+        }
+
+        /// <summary>
         /// The component that receives the output.
         /// </summary>
         private Component outputElement;
+
+        /// <summary>
+        /// The public getter of the output element.
+        /// TODO: To be added in the class description.
+        /// </summary>
+        public Component OutputElement
+        {
+            get
+            {
+                return this.outputElement;
+            }
+        }
 
         /// <summary>
         /// The method that changes the safety limit of the pipeline.

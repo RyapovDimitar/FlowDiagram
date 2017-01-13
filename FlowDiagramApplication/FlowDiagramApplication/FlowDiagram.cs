@@ -141,9 +141,22 @@ namespace FlowDiagramApplication
         /// </summary>
         /// <param name="first">The first component that is to be disconnected.</param>
         /// <param name="second">The second component that is to be disconnected.</param>
-        public void Disconnect(Component first, Component second)
+        public bool Disconnect(Component first, Component second)
         {
-
+            var result = this.Connections
+                .Where(x => x.InputElement == first)
+                .Where(x => x.OutputElement == second)
+                .Select(x => x).First();
+            for (int i = 0; i < this.Connections.Count; i++)
+            {
+                if ((this.Connections.ElementAt(i).InputElement == result.InputElement)
+                    && (this.Connections.ElementAt(i).OutputElement == result.OutputElement))
+                {
+                    this.Connections.RemoveAt(i);
+                    return true;
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -151,9 +164,28 @@ namespace FlowDiagramApplication
         /// </summary>
         /// <param name="component">The component that is going to have its capacity 
         /// changed.</param>
-        public void ChangeCapacity(Component component)
+        public void ChangeCapacity(Component component, double newCapacity)
         {
 
+            var componentFound = this.Components
+                .Where(x => x.CurrentId == component.CurrentId)
+                .Select(x => x).First();
+            if (componentFound != null)
+            {
+                if (component is Pump)
+                {
+                    ((Pump)component).SetCapacity(newCapacity);
+                }
+                else
+                {
+                    throw new Exception("this type of component could not have its capacity changed," +
+                        " maybe it doesnt even have capacity?");
+                }
+            }
+            else
+            {
+                throw new Exception("this component was not found in the list of components...");
+            }
         }
 
         /// <summary>
