@@ -222,7 +222,7 @@ namespace FlowDiagramApplication
         }
         private void SelectComponent(int componentId)
         {
-            Component component;
+            Component component = null;
             foreach (Component comp in fl.Components)
             {
                 if (comp.GetId() == componentId)
