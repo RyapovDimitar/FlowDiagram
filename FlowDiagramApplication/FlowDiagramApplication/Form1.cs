@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FlowDiagramApplication.Components;
+using System.Drawing.Imaging;
 
 namespace FlowDiagramApplication
 {
@@ -17,6 +18,8 @@ namespace FlowDiagramApplication
         ToolType tool;
         private int halfSize = 20;
         private Component selectedComponent = null;
+        private Component unselectedComponent = null;
+        private Pipeline selectedPipeline = null;
 
         private enum ToolType
         {
@@ -67,6 +70,21 @@ namespace FlowDiagramApplication
                     }
                     
                 }
+
+            // Draws a rectangle around the selected component
+            if (selectedComponent != null)
+            {
+                Rectangle selectRect = new Rectangle(selectedComponent.Position.X-1, selectedComponent.Position.Y-1, halfSize * 2 + 2, halfSize * 2 + 2);
+                Pen bluePen = new Pen(Color.LightBlue, 2);
+                e.Graphics.DrawRectangle(bluePen, selectRect);
+            }
+            if (unselectedComponent != null)
+            {
+                Rectangle unselectRect = new Rectangle(unselectedComponent.Position.X - 1, unselectedComponent.Position.Y - 1, halfSize * 2 + 2, halfSize * 2 + 2);
+                Pen whitePen = new Pen(Color.White, 2);
+                e.Graphics.DrawRectangle(whitePen, unselectRect);
+                unselectedComponent = null;
+            }
         }
 
 
@@ -156,6 +174,7 @@ namespace FlowDiagramApplication
 
         private bool CheckComponentOverlay(Point mousePosition)
         {
+            //Checks if the added component overlaps any oother component
             Point leftUp = mousePosition, rightUp = mousePosition, leftDown = mousePosition, rightDown = mousePosition;
             leftUp.X -= halfSize;
             leftUp.Y -= halfSize;
@@ -193,6 +212,11 @@ namespace FlowDiagramApplication
                         {
                             SelectComponent(Convert.ToInt32(str[1]));
                         }
+                    }
+                    if (selected == null)
+                    {
+                        unselectedComponent = selectedComponent;
+                        selectedComponent = null;
                     }
                     break;
                 case ToolType.delete:
@@ -244,8 +268,10 @@ namespace FlowDiagramApplication
                 if (component.GetId() == componentId)
                 {
                     selectedComponent = component;
+                    selectedPipeline = null;
                 }
             }
+            pbCanvas.Invalidate();
         }
         private void DeleteComponent(int componentId)
         {
@@ -256,6 +282,11 @@ namespace FlowDiagramApplication
                 {
                     toDelete = component;
                 }
+            }
+            if (toDelete == selectedComponent)
+            {
+                unselectedComponent = selectedComponent;
+                selectedComponent = null;
             }
             fl.DeleteComponent(toDelete);
         }
