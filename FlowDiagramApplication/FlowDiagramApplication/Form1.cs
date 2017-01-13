@@ -7,19 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-<<<<<<< HEAD
-=======
 using FlowDiagramApplication.Components;
 using System.Drawing.Imaging;
->>>>>>> refs/remotes/origin/Andi
 
 namespace FlowDiagramApplication
 {
     public partial class Form1 : Form
     {
         FlowDiagram fl;
-<<<<<<< HEAD
-=======
         ToolType tool;
         private int halfSize = 20;
         private Component selectedComponent = null;
@@ -37,18 +32,15 @@ namespace FlowDiagramApplication
             addSplitter,
             addPipeline
         }
->>>>>>> refs/remotes/origin/Andi
         public Form1()
         {
             InitializeComponent();
             fl = new FlowDiagram();
-<<<<<<< HEAD
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             fl.Components = new List<Component>();
-=======
             tool = ToolType.select;
             btnSelect.Checked = true;
             
@@ -302,7 +294,11 @@ namespace FlowDiagramApplication
                 selectedComponent = null;
             }
             fl.DeleteComponent(toDelete);
->>>>>>> refs/remotes/origin/Andi
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
