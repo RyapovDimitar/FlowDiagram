@@ -239,17 +239,7 @@
             The image of the component.
             </summary>
         </member>
-        <member name="P:FlowDiagramApplication.Component.Image">
-            <summary>
-            The image of the component.
-            </summary>
-        </member>
         <member name="F:FlowDiagramApplication.Component.componentType">
-            <summary>
-            The type of the component.
-            </summary>
-        </member>
-        <member name="P:FlowDiagramApplication.Component.ComponentType">
             <summary>
             The type of the component.
             </summary>

@@ -1,10 +1,10 @@
-﻿using System;
+﻿using FlowDiagramApplication.Components;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FlowDiagramApplication.Components;
 
 namespace FlowDiagramApplication
 {
@@ -14,14 +14,27 @@ namespace FlowDiagramApplication
     class FlowDiagram
     {
         /// <summary>
+        /// The constructor of the class.
+        /// TODO: To be added in the documentation.
+        /// Created by: Dimitar
+        /// </summary>
+        public FlowDiagram()
+        {
+            this.Components = new List<Component>();
+            this.Connections = new List<Pipeline>();
+            this.totalFlow = 0;
+            this.generalSafetyLimit = 0;
+        }
+
+        /// <summary>
         /// The list of all the components in the flow diagram.
         /// </summary>
-        public List<Component> Components = new List<Component>();
+        public List<Component> Components;
 
         /// <summary>
         /// The list of all the connections in the flow diagram.
         /// </summary>
-        public List<Pipeline> Connections = new List<Pipeline>();
+        public List<Pipeline> Connections;
 
         /// <summary>
         /// The total flow in the flow diagram.
@@ -53,10 +66,14 @@ namespace FlowDiagramApplication
 
         /// <summary>
         /// The method that clears the flow diagram from the drawing space.
+        /// Created by: Dimitar
         /// </summary>
         public void ClearFlowDiagram()
         {
-
+            this.Components.Clear();
+            this.Connections.Clear();
+            this.totalFlow = 0;
+            this.generalSafetyLimit = 0;
         }
 
         /// <summary>
@@ -79,6 +96,7 @@ namespace FlowDiagramApplication
 
         /// <summary>
         /// The method that adds a component to the list with components.
+        /// Created by: Dimitar
         /// </summary>
         /// <param name="position">The position of the component.</param>
         /// <param name="type">The type of the component.</param>
@@ -108,11 +126,23 @@ namespace FlowDiagramApplication
 
         /// <summary>
         /// The method that is deleting a component from the list of components.
+        /// TODO: Change method type from void to bool in the class description.
         /// </summary>
         /// <param name="component">The component that is to be deleted.</param>
-        public void DeleteComponent(Component component)
+        public bool DeleteComponent(Component component)
         {
-            Components.Remove(component);
+            var componentFound = this.Components
+                .Where(x => x.CurrentId == component.CurrentId)
+                .Select(x => x).First();
+            for (int i = 0; i < this.Components.Count; i++)
+            {
+                if (this.Components.ElementAt(i).CurrentId == componentFound.CurrentId)
+                {
+                    this.Components.RemoveAt(i);
+                    return true;
+                }
+            }
+            return false;
         }
 
         /// <summary>
@@ -123,7 +153,7 @@ namespace FlowDiagramApplication
         /// position changed.</param>
         public void ChangeComponentPosition(Point position, Component component)
         {
-
+            
         }
 
         /// <summary>
@@ -133,11 +163,14 @@ namespace FlowDiagramApplication
         /// <param name="connectFrom">The first component that is to be connected.</param>
         public void Connect(Component connectTo, Component connectFrom)
         {
-
+            Pipeline pipe = new Pipeline(connectFrom, connectTo);
+            this.Connections.Add(pipe);
         }
 
         /// <summary>
         /// The method that deletes a connection between two components.
+        /// TODO: Add in documentation - changed from "void" to "bool"
+        /// Created by: Dimitar
         /// </summary>
         /// <param name="first">The first component that is to be disconnected.</param>
         /// <param name="second">The second component that is to be disconnected.</param>
@@ -157,16 +190,18 @@ namespace FlowDiagramApplication
                 }
             }
             return false;
+
         }
 
         /// <summary>
         /// The method that changes the capacity of a component.
+        /// TODO: Add in the classes description the new parameter newCapacity
+        /// Created by: Dimitar
         /// </summary>
         /// <param name="component">The component that is going to have its capacity 
         /// changed.</param>
         public void ChangeCapacity(Component component, double newCapacity)
         {
-
             var componentFound = this.Components
                 .Where(x => x.CurrentId == component.CurrentId)
                 .Select(x => x).First();
@@ -178,7 +213,7 @@ namespace FlowDiagramApplication
                 }
                 else
                 {
-                    throw new Exception("this type of component could not have its capacity changed," +
+                    throw new Exception("this type of component could not have its capacity changed,"+
                         " maybe it doesnt even have capacity?");
                 }
             }

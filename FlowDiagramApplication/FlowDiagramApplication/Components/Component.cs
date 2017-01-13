@@ -16,12 +16,12 @@ namespace FlowDiagramApplication
         /// <summary>
         /// Static id counter that is going to be incremented for each new component instance.
         /// </summary>
-        protected static int id=0;
+        static int id=0;
 
         /// <summary>
         /// The current component instance id.
         /// </summary>
-        protected int currentId;
+        private int currentId;
 
         /// <summary>
         /// The current component instance id.
@@ -38,48 +38,27 @@ namespace FlowDiagramApplication
         /// <summary>
         /// The size of the componenet picture.
         /// </summary>
-        protected static Size size = new Size(20,20);
+        private static Size size = new Size(20,30);
 
         /// <summary>
         /// The string for the imagepath of the component.
         /// </summary>
-        protected string imagepath;
+        private string imagepath;
 
         /// <summary>
         /// The image of the component.
         /// </summary>
-        protected Image image;
-        /// <summary>
-        /// The image of the component.
-        /// </summary>
-        public Image Image
-        {
-            get { return image; }
-        }
-        /// <summary>
-        /// The type of the component.
-        /// </summary>
-        protected ComponentType componentType;
+        private Image image;
 
         /// <summary>
         /// The type of the component.
         /// </summary>
-        public ComponentType ComponentType
-        {
-            get { return componentType; }
-        }
+        private ComponentType componentType;
 
         /// <summary>
         /// The position of the top left corner of the component.
         /// </summary>
         private System.Drawing.Point position;
-        public System.Drawing.Point Position
-        {
-            get
-            {
-                return this.position;
-            }
-        }
 
         /// <summary>
         /// The constructor of the component.
@@ -90,8 +69,6 @@ namespace FlowDiagramApplication
         {
             this.position = position;
             this.componentType = type;
-            id++;
-            currentId = id;
         }
 
         /// <summary>
@@ -101,7 +78,7 @@ namespace FlowDiagramApplication
         public override string ToString()
         {
             //TODO
-            return "The component is " + this.componentType.ToString() + " " + Convert.ToString(position);
+            return "The component is" + this.componentType.ToString() + "...";
         }
 
         /// <summary>
@@ -111,11 +88,6 @@ namespace FlowDiagramApplication
         public void  ChangePosition(Point newposition)
         {
             this.position = newposition;
-        }
-
-        public int GetId ()
-        {
-            return currentId;
         }
     }
 }
