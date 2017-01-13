@@ -118,7 +118,7 @@ namespace FlowDiagramApplication
         /// <param name="component">The component that is to be deleted.</param>
         public void DeleteComponent(Component component)
         {
-
+            Components.Remove(component);
         }
 
         /// <summary>

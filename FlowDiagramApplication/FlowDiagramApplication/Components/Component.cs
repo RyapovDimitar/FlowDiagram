@@ -26,7 +26,7 @@ namespace FlowDiagramApplication
         /// <summary>
         /// The size of the componenet picture.
         /// </summary>
-        protected static Size size = new Size(20,30);
+        protected static Size size = new Size(20,20);
 
         /// <summary>
         /// The string for the imagepath of the component.
@@ -99,6 +99,11 @@ namespace FlowDiagramApplication
         public void  ChangePosition(Point newposition)
         {
             this.position = newposition;
+        }
+
+        public int GetId ()
+        {
+            return currentId;
         }
     }
 }
