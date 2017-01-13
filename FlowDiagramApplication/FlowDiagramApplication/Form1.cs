@@ -162,7 +162,7 @@ namespace FlowDiagramApplication
             {
                 if(component.Position.X + halfSize >= mousePosition.X && component.Position.X - halfSize <= mousePosition.X && component.Position.Y - halfSize <= mousePosition.Y && component.Position.Y + halfSize >= mousePosition.Y) 
                 {
-                    result = "Component," + Convert.ToString(component.GetId());
+                    result = "Component," + Convert.ToString(component.CurrentId);
                     return result;
                 }
             }
@@ -265,7 +265,7 @@ namespace FlowDiagramApplication
         {
             foreach (Component component in fl.Components)
             {
-                if (component.GetId() == componentId)
+                if (component.CurrentId == componentId)
                 {
                     selectedComponent = component;
                     selectedPipeline = null;
@@ -278,7 +278,7 @@ namespace FlowDiagramApplication
             Component toDelete = null;
             foreach (Component component in fl.Components)
             {
-                if (component.GetId() == componentId)
+                if (component.CurrentId == componentId)
                 {
                     toDelete = component;
                 }

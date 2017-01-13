@@ -113,9 +113,5 @@ namespace FlowDiagramApplication
             this.position = newposition;
         }
 
-        public int GetId ()
-        {
-            return currentId;
-        }
     }
 }
