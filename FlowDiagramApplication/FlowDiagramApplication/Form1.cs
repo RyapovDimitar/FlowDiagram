@@ -21,10 +21,6 @@ namespace FlowDiagramApplication
         private Component unselectedComponent = null;
         private Pipeline selectedPipeline = null;
 
-        private Component input = null;
-        private Component output = null;
-
-
         private enum ToolType
         {
             select,
@@ -74,13 +70,6 @@ namespace FlowDiagramApplication
                     }
                     
                 }
-            if(fl.Connections != null)
-            {
-                foreach (Pipeline pipeline in fl.Connections)
-                {
-                    e.Graphics.DrawLine(Pens.LightBlue, pipeline.InputElement.Position, pipeline.OutputElement.Position);
-                }
-            }
 
             // Draws a rectangle around the selected component
             if (selectedComponent != null)
@@ -266,30 +255,6 @@ namespace FlowDiagramApplication
                         fl.AddComponent(position, ComponentType.Splitter);
                     break;
                 case ToolType.addPipeline:
-                    selected = CheckMousePosition(position);
-                    if (selected != null)
-                    {
-                        str = selected.Split(new[] { ',' });
-                        if (str[0] == "Component")
-                        {
-                            SelectComponent(Convert.ToInt32(str[1]));
-                            if (input == null)
-                            {
-                                input = selectedComponent;
-                            }
-                            else if (output == null)
-                            {
-                                output = selectedComponent;
-                                
-                            }
-                            else
-                            {
-                                fl.Connect(input, output);
-                                input = null;
-                                output = null;
-                            }
-                        }
-                    }
                     break;
                 default:
                     break;
