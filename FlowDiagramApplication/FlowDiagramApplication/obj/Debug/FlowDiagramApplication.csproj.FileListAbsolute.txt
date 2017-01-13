@@ -17,3 +17,7 @@ D:\fontys\year2\semester1\ood2\application-mybranch\FlowDiagramApplication\FlowD
 D:\fontys\year2\semester1\ood2\application-mybranch\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.Form1.resources
 D:\fontys\year2\semester1\ood2\application-mybranch\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.Properties.Resources.resources
 D:\fontys\year2\semester1\ood2\application-mybranch\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.csproj.GenerateResource.Cache
+D:\fontys\year2\semester1\ood2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\bin\Debug\FlowDiagramApplication.exe.config
+D:\fontys\year2\semester1\ood2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\bin\Debug\FlowDiagramApplication.XML
+D:\fontys\year2\semester1\ood2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.exe
+D:\fontys\year2\semester1\ood2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.pdb
