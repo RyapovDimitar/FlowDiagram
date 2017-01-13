@@ -56,7 +56,10 @@ namespace FlowDiagramApplication
         /// </summary>
         public void ClearFlowDiagram()
         {
-
+            this.Components.Clear();
+            this.Connections.Clear();
+            this.totalFlow = 0;
+            this.generalSafetyLimit = 0;
         }
 
         /// <summary>
@@ -144,7 +147,8 @@ namespace FlowDiagramApplication
         /// <param name="connectFrom">The first component that is to be connected.</param>
         public void Connect(Component connectTo, Component connectFrom)
         {
-
+            Pipeline pipe = new Pipeline(connectFrom, connectTo);
+            this.Connections.Add(pipe);
         }
 
         /// <summary>
