@@ -84,31 +84,25 @@ namespace FlowDiagramApplication
         /// <param name="type">The type of the component.</param>
         public void AddComponent(Point position, ComponentType type)
         {
-            Merger merger;
             switch (type)
             {
-                case ComponentType.Merger:
-                    merger = new Merger(position, type);
-                    Components.Add(merger);
-                    break;
-                case ComponentType.Splitter:
-                    Splitter splitter = new Splitter(position, type);
-                    Components.Add(splitter);
-                    break;
                 case ComponentType.AdjustableSplitter:
-                    AdjustableSplitter adjustableSplitter = new AdjustableSplitter(position, type);
-                    Components.Add(adjustableSplitter);
+                    this.Components.Add(new AdjustableSplitter(position, type));
+                    break;
+                case ComponentType.Merger:
+                    this.Components.Add(new Merger(position, type));
                     break;
                 case ComponentType.Pump:
-                    Pump pump = new Pump(position, type);
-                    Components.Add(pump);
+                    this.Components.Add(new Pump(position, type));
                     break;
                 case ComponentType.Sink:
-                    Sink sink = new Sink(position, type);
-                    Components.Add(sink);
+                    this.Components.Add(new Sink(position, type));
+                    break;
+                case ComponentType.Splitter:
+                    this.Components.Add(new Splitter(position, type));
                     break;
                 default:
-                    break;
+                    throw new Exception("not a valid component type was selected");
             }
         }
 

@@ -16,6 +16,7 @@ namespace FlowDiagramApplication
         FlowDiagram fl;
         ToolType tool;
         private int halfSize = 20;
+        private Component selectedComponent = null;
 
         private enum ToolType
         {
@@ -168,14 +169,15 @@ namespace FlowDiagramApplication
             rightDown.X += halfSize;
             rightDown.Y += halfSize;
             if (CheckMousePosition(leftUp) != null || CheckMousePosition(rightUp) != null || CheckMousePosition(leftDown) != null || CheckMousePosition(rightDown) != null)
-                return true;
-            return false;
+                return false;
+            return true;
         }
 
         private void pbCanvas_Click(object sender, EventArgs e)
         {
             MouseEventArgs me = (MouseEventArgs)e;
             String selected = "";
+            string[] str;
             Point position = me.Location;
             position.X -= halfSize;
             position.Y -= halfSize;
@@ -184,34 +186,49 @@ namespace FlowDiagramApplication
             {
                 case ToolType.select:
                     selected = CheckMousePosition(position);
-                    string[] str = selected.Split(new[] { ',' });
-                    if (str[0] == "Component")
+                    if (selected != null)
                     {
-                        SelectComponent(Convert.ToInt32(str[1]));
+                        str = selected.Split(new[] { ',' });
+                        if (str[0] == "Component")
+                        {
+                            SelectComponent(Convert.ToInt32(str[1]));
+                        }
                     }
                     break;
                 case ToolType.delete:
                     selected = CheckMousePosition(position);
-                    str = selected.Split(new[] { ',' });
-                    if (str[0] == "Component")
+                    if(selected != null)
                     {
-                        DeleteComponent(Convert.ToInt32(str[1]));
+                        str = selected.Split(new[] { ',' });
+                        if (str[0] == "Component")
+                        {
+                            DeleteComponent(Convert.ToInt32(str[1]));
+                        }
                     }
-                        break;
+                    else
+                    {
+
+                    }
+                    break;
                 case ToolType.addSink:
-                    fl.AddComponent(position, ComponentType.Sink);
+                    if(CheckComponentOverlay(position))
+                        fl.AddComponent(position, ComponentType.Sink);
                     break;
                 case ToolType.addPump:
-                    fl.AddComponent(position, ComponentType.Pump);
+                    if (CheckComponentOverlay(position))
+                        fl.AddComponent(position, ComponentType.Pump);
                     break;
                 case ToolType.addMerger:
-                    fl.AddComponent(position, ComponentType.Merger);
+                    if (CheckComponentOverlay(position))
+                        fl.AddComponent(position, ComponentType.Merger);
                     break;
                 case ToolType.addAdjSplitter:
-                    fl.AddComponent(position, ComponentType.AdjustableSplitter);
+                    if (CheckComponentOverlay(position))
+                        fl.AddComponent(position, ComponentType.AdjustableSplitter);
                     break;
                 case ToolType.addSplitter:
-                    fl.AddComponent(position, ComponentType.Splitter);
+                    if (CheckComponentOverlay(position))
+                        fl.AddComponent(position, ComponentType.Splitter);
                     break;
                 case ToolType.addPipeline:
                     break;
@@ -222,12 +239,11 @@ namespace FlowDiagramApplication
         }
         private void SelectComponent(int componentId)
         {
-            Component component = null;
-            foreach (Component comp in fl.Components)
+            foreach (Component component in fl.Components)
             {
-                if (comp.GetId() == componentId)
+                if (component.GetId() == componentId)
                 {
-                    component = comp;
+                    selectedComponent = component;
                 }
             }
         }

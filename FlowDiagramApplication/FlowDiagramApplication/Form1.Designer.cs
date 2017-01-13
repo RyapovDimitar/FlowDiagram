@@ -64,7 +64,7 @@
             this.workplaceToolStripMenuItem});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(861, 28);
+            this.mainMenu.Size = new System.Drawing.Size(1011, 28);
             this.mainMenu.TabIndex = 1;
             this.mainMenu.Text = "mainMenu";
             // 
@@ -304,7 +304,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 659);
+            this.ClientSize = new System.Drawing.Size(1011, 659);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mainMenu);
             this.Controls.Add(this.pbCanvas);
