@@ -71,7 +71,8 @@ namespace FlowDiagramApplication
         /// <param name="outputComponent">The component that receives the output.</param>
         public Pipeline(Component inputComponent, Component outputComponent)
         {
-
+            this.inputElement = inputComponent;
+            this.outputElement = outputComponent;
         }
     }
 }

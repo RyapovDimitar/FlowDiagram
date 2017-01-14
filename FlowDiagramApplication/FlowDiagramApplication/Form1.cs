@@ -59,6 +59,17 @@ namespace FlowDiagramApplication
 
                 e.Graphics.DrawLine(bluePen, input.Position.X+halfSize, input.Position.Y + halfSize, mousePosition.X, mousePosition.Y);
             }
+
+            // Drawing the pipeline
+            if (fl.Connections != null)
+            {
+                foreach (Pipeline pipeline in fl.Connections)
+                {
+                    //e.Graphics.DrawLine(bluePen, pipeline.InputElement.Position.X + halfSize, pipeline.InputElement.Position.Y + halfSize, pipeline.OutputElement.Position.X + halfSize, pipeline.OutputElement.Position.Y + halfSize);
+                    if(pipeline.InputElement != null && pipeline.OutputElement != null)
+                        e.Graphics.DrawLine(bluePen, pipeline.InputElement.Position, pipeline.OutputElement.Position);
+                }
+            }
             // Drawing the components
             if (fl.Components != null)
                 foreach (Component component in fl.Components)
@@ -405,6 +416,11 @@ namespace FlowDiagramApplication
             if (confirmResult == DialogResult.Yes)
             {
                 fl.ClearFlowDiagram();
+                selectedComponent = null;
+                unselectedComponent = null;
+                selectedPipeline = null;
+                input = null;
+                output = null;
                 pbCanvas.Invalidate();
             }
         }
