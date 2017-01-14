@@ -132,11 +132,11 @@ namespace FlowDiagramApplication
         public bool DeleteComponent(Component component)
         {
             var componentFound = this.Components
-                .Where(x => x.CurrentId == component.CurrentId)
+                .Where(x => x.GetId() == component.GetId())
                 .Select(x => x).First();
             for (int i = 0; i < this.Components.Count; i++)
             {
-                if (this.Components.ElementAt(i).CurrentId == componentFound.CurrentId)
+                if (this.Components.ElementAt(i).GetId() == componentFound.GetId())
                 {
                     this.Components.RemoveAt(i);
                     return true;
@@ -203,7 +203,7 @@ namespace FlowDiagramApplication
         public void ChangeCapacity(Component component, double newCapacity)
         {
             var componentFound = this.Components
-                .Where(x => x.CurrentId == component.CurrentId)
+                .Where(x => x.GetId() == component.GetId())
                 .Select(x => x).First();
             if (componentFound != null)
             {

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,10 +49,20 @@
             this.btnMerger = new System.Windows.Forms.ToolStripButton();
             this.btnPipeline = new System.Windows.Forms.ToolStripButton();
             this.pbCanvas = new System.Windows.Forms.PictureBox();
+            this.componentProperties = new System.Windows.Forms.GroupBox();
+            this.tbCapacity = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbFlow = new System.Windows.Forms.TextBox();
+            this.gbSetRate = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbSetRate = new System.Windows.Forms.TextBox();
             this.mainMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCanvas)).BeginInit();
+            this.componentProperties.SuspendLayout();
+            this.gbSetRate.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenu
@@ -88,14 +97,16 @@
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.saveAsToolStripMenuItem.Text = "Save as";
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
@@ -117,12 +128,14 @@
             this.clearNetworkToolStripMenuItem.Name = "clearNetworkToolStripMenuItem";
             this.clearNetworkToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.clearNetworkToolStripMenuItem.Text = "Clear network";
+            this.clearNetworkToolStripMenuItem.Click += new System.EventHandler(this.clearNetworkToolStripMenuItem_Click);
             // 
             // propertiesToolStripMenuItem
             // 
             this.propertiesToolStripMenuItem.Name = "propertiesToolStripMenuItem";
             this.propertiesToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.propertiesToolStripMenuItem.Text = "Network properties";
+            this.propertiesToolStripMenuItem.Click += new System.EventHandler(this.propertiesToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -161,17 +174,17 @@
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Margin = new System.Windows.Forms.Padding(5, 10, 5, 2);
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(88, 24);
             this.toolStripButton1.Text = "Properties";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // btnSelect
             // 
             this.btnSelect.CheckOnClick = true;
-            this.btnSelect.Image = ((System.Drawing.Image)(resources.GetObject("btnSelect.Image")));
+            this.btnSelect.Image = global::FlowDiagramApplication.Properties.Resources.SelectIcon;
             this.btnSelect.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnSelect.ImageTransparentColor = System.Drawing.Color.White;
             this.btnSelect.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
@@ -186,7 +199,7 @@
             // btnDelete
             // 
             this.btnDelete.CheckOnClick = true;
-            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.Image = global::FlowDiagramApplication.Properties.Resources.DeleteIcon;
             this.btnDelete.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnDelete.ImageTransparentColor = System.Drawing.Color.White;
             this.btnDelete.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
@@ -201,7 +214,7 @@
             // btnPump
             // 
             this.btnPump.CheckOnClick = true;
-            this.btnPump.Image = ((System.Drawing.Image)(resources.GetObject("btnPump.Image")));
+            this.btnPump.Image = global::FlowDiagramApplication.Properties.Resources.PumpIcon;
             this.btnPump.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnPump.ImageTransparentColor = System.Drawing.Color.White;
             this.btnPump.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
@@ -216,7 +229,7 @@
             // btnSink
             // 
             this.btnSink.CheckOnClick = true;
-            this.btnSink.Image = ((System.Drawing.Image)(resources.GetObject("btnSink.Image")));
+            this.btnSink.Image = global::FlowDiagramApplication.Properties.Resources.SinkIcon;
             this.btnSink.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnSink.ImageTransparentColor = System.Drawing.Color.White;
             this.btnSink.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
@@ -232,7 +245,7 @@
             // btnSplitter
             // 
             this.btnSplitter.CheckOnClick = true;
-            this.btnSplitter.Image = ((System.Drawing.Image)(resources.GetObject("btnSplitter.Image")));
+            this.btnSplitter.Image = global::FlowDiagramApplication.Properties.Resources.SplitterIcon;
             this.btnSplitter.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnSplitter.ImageTransparentColor = System.Drawing.Color.White;
             this.btnSplitter.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
@@ -247,7 +260,7 @@
             // btnAdjSplitter
             // 
             this.btnAdjSplitter.CheckOnClick = true;
-            this.btnAdjSplitter.Image = ((System.Drawing.Image)(resources.GetObject("btnAdjSplitter.Image")));
+            this.btnAdjSplitter.Image = global::FlowDiagramApplication.Properties.Resources.Adj__SplitterIcon;
             this.btnAdjSplitter.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAdjSplitter.ImageTransparentColor = System.Drawing.Color.White;
             this.btnAdjSplitter.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
@@ -262,7 +275,7 @@
             // btnMerger
             // 
             this.btnMerger.CheckOnClick = true;
-            this.btnMerger.Image = ((System.Drawing.Image)(resources.GetObject("btnMerger.Image")));
+            this.btnMerger.Image = global::FlowDiagramApplication.Properties.Resources.MergerIcon;
             this.btnMerger.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnMerger.ImageTransparentColor = System.Drawing.Color.White;
             this.btnMerger.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
@@ -277,7 +290,7 @@
             // btnPipeline
             // 
             this.btnPipeline.CheckOnClick = true;
-            this.btnPipeline.Image = ((System.Drawing.Image)(resources.GetObject("btnPipeline.Image")));
+            this.btnPipeline.Image = global::FlowDiagramApplication.Properties.Resources.PipelineIcon;
             this.btnPipeline.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnPipeline.ImageTransparentColor = System.Drawing.Color.White;
             this.btnPipeline.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
@@ -299,12 +312,92 @@
             this.pbCanvas.TabStop = false;
             this.pbCanvas.Click += new System.EventHandler(this.pbCanvas_Click);
             this.pbCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pbCanvas_Paint);
+            this.pbCanvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCanvas_MouseMove);
+            // 
+            // componentProperties
+            // 
+            this.componentProperties.Controls.Add(this.tbFlow);
+            this.componentProperties.Controls.Add(this.label2);
+            this.componentProperties.Controls.Add(this.tbCapacity);
+            this.componentProperties.Controls.Add(this.label1);
+            this.componentProperties.Location = new System.Drawing.Point(834, 54);
+            this.componentProperties.Name = "componentProperties";
+            this.componentProperties.Size = new System.Drawing.Size(165, 127);
+            this.componentProperties.TabIndex = 6;
+            this.componentProperties.TabStop = false;
+            this.componentProperties.Text = "Properties";
+            this.componentProperties.Visible = false;
+            // 
+            // tbCapacity
+            // 
+            this.tbCapacity.Location = new System.Drawing.Point(10, 43);
+            this.tbCapacity.Name = "tbCapacity";
+            this.tbCapacity.Size = new System.Drawing.Size(149, 22);
+            this.tbCapacity.TabIndex = 1;
+            this.tbCapacity.TextChanged += new System.EventHandler(this.tbCapacity_TextChanged);
+            this.tbCapacity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCapacity_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Capacity";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Flow";
+            // 
+            // tbFlow
+            // 
+            this.tbFlow.Location = new System.Drawing.Point(10, 97);
+            this.tbFlow.Name = "tbFlow";
+            this.tbFlow.Size = new System.Drawing.Size(149, 22);
+            this.tbFlow.TabIndex = 3;
+            this.tbFlow.TextChanged += new System.EventHandler(this.tbFlow_TextChanged);
+            // 
+            // gbSetRate
+            // 
+            this.gbSetRate.Controls.Add(this.tbSetRate);
+            this.gbSetRate.Controls.Add(this.label3);
+            this.gbSetRate.Location = new System.Drawing.Point(834, 54);
+            this.gbSetRate.Name = "gbSetRate";
+            this.gbSetRate.Size = new System.Drawing.Size(165, 74);
+            this.gbSetRate.TabIndex = 7;
+            this.gbSetRate.TabStop = false;
+            this.gbSetRate.Text = "Set rate";
+            this.gbSetRate.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 17);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Rate";
+            // 
+            // tbSetRate
+            // 
+            this.tbSetRate.Location = new System.Drawing.Point(11, 43);
+            this.tbSetRate.Name = "tbSetRate";
+            this.tbSetRate.Size = new System.Drawing.Size(148, 22);
+            this.tbSetRate.TabIndex = 4;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1011, 659);
+            this.Controls.Add(this.gbSetRate);
+            this.Controls.Add(this.componentProperties);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.mainMenu);
             this.Controls.Add(this.pbCanvas);
@@ -317,6 +410,10 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCanvas)).EndInit();
+            this.componentProperties.ResumeLayout(false);
+            this.componentProperties.PerformLayout();
+            this.gbSetRate.ResumeLayout(false);
+            this.gbSetRate.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,6 +441,14 @@
         private System.Windows.Forms.ToolStripButton btnSelect;
         private System.Windows.Forms.ToolStripButton btnDelete;
         private System.Windows.Forms.PictureBox pbCanvas;
+        private System.Windows.Forms.GroupBox componentProperties;
+        private System.Windows.Forms.TextBox tbCapacity;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbFlow;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox gbSetRate;
+        private System.Windows.Forms.TextBox tbSetRate;
+        private System.Windows.Forms.Label label3;
     }
 }
 

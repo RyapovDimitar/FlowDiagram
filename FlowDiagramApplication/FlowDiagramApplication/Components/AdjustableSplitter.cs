@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FlowDiagramApplication.Properties;
 
 namespace FlowDiagramApplication.Components
 {
@@ -15,7 +16,13 @@ namespace FlowDiagramApplication.Components
         /// <summary>
         /// The division rate of the adjustable splitter. 
         /// </summary>
-        private double divisionRate;
+        // EXTRA I added the get property and set the default divisionRate at 70 for testing purposes
+        private double divisionRate = 70;
+
+        public double DivisionRate
+        {
+            get { return this.divisionRate; }
+        }
 
         /// <summary>
         /// The method that connects second(down) output component
@@ -93,7 +100,7 @@ namespace FlowDiagramApplication.Components
         /// <param name="type">The type of the component.</param>
         public AdjustableSplitter(Point position, ComponentType type) : base(position, type)
         {
-
+            this.image = Resources.Adj__SplitterIcon;
         }
     }
 }

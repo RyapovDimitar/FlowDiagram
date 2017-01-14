@@ -77,6 +77,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -90,6 +91,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pump.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="componentImages\PumpIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="componentImages\Adj. SplitterIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="componentImages\DeleteIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="componentImages\MergerIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="componentImages\PipelineIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="componentImages\SelectIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="componentImages\SinkIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="componentImages\SplitterIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -16,49 +16,59 @@ namespace FlowDiagramApplication
         /// <summary>
         /// Static id counter that is going to be incremented for each new component instance.
         /// </summary>
-        static int id=0;
+        protected static int id = 0;
 
         /// <summary>
         /// The current component instance id.
         /// </summary>
-        private int currentId;
-
-        /// <summary>
-        /// The current component instance id.
-        /// TODO: Add in the classes description.
-        /// </summary>
-        public int CurrentId
-        {
-            get
-            {
-                return this.currentId;
-            }
-        }
+        protected int currentId;
 
         /// <summary>
         /// The size of the componenet picture.
         /// </summary>
-        private static Size size = new Size(20,30);
+        protected static Size size = new Size(20, 20);
 
         /// <summary>
         /// The string for the imagepath of the component.
         /// </summary>
-        private string imagepath;
+        protected string imagepath;
 
         /// <summary>
         /// The image of the component.
         /// </summary>
-        private Image image;
+        protected Image image;
+        /// <summary>
+        /// The image of the component.
+        /// </summary>
+        public Image Image
+        {
+            get { return image; }
+        }
+        /// <summary>
+        /// The type of the component.
+        /// </summary>
+        protected ComponentType componentType;
 
         /// <summary>
         /// The type of the component.
         /// </summary>
-        private ComponentType componentType;
+        // EXTRA I added the get for componentType
+        public ComponentType ComponentType
+        {
+            get { return componentType; }
+        }
 
         /// <summary>
         /// The position of the top left corner of the component.
         /// </summary>
         private System.Drawing.Point position;
+        public System.Drawing.Point Position
+        {
+            get
+            {
+                return this.position;
+            }
+        }
 
         /// <summary>
         /// The constructor of the component.
@@ -69,6 +79,8 @@ namespace FlowDiagramApplication
         {
             this.position = position;
             this.componentType = type;
+            id++;
+            currentId = id;
         }
 
         /// <summary>
@@ -78,16 +90,21 @@ namespace FlowDiagramApplication
         public override string ToString()
         {
             //TODO
-            return "The component is" + this.componentType.ToString() + "...";
+            return "The component is " + this.componentType.ToString() + " " + Convert.ToString(position);
         }
 
         /// <summary>
         /// The method that saves a new position of the component.
         /// </summary>
         /// <param name="newposition">The coordinates of the new position.</param>
-        public void  ChangePosition(Point newposition)
+        public void ChangePosition(Point newposition)
         {
             this.position = newposition;
+        }
+
+        public int GetId()
+        {
+            return currentId;
         }
     }
 }

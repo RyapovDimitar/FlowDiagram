@@ -27,3 +27,7 @@ D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\obj\Deb
 D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.csproj.GenerateResource.Cache
 D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.exe
 D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\obj\Debug\FlowDiagramApplication.pdb
+D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\bin\Debug\FlowDiagramApplication.exe.config
+D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\bin\Debug\FlowDiagramApplication.XML
+D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\bin\Debug\FlowDiagramApplication.exe
+D:\Fontys\OOD2\FlowDiagram\FlowDiagramApplication\FlowDiagramApplication\bin\Debug\FlowDiagramApplication.pdb

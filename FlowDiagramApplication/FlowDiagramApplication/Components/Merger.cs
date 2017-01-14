@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FlowDiagramApplication.Properties;
 
 namespace FlowDiagramApplication.Components
 {
@@ -70,7 +71,7 @@ namespace FlowDiagramApplication.Components
         /// <param name="type">The type of the component.</param>
         public Merger(Point position, ComponentType type) : base(position, type)
         {
-
+            this.image = Resources.MergerIcon;
         }
 
         /// <summary>

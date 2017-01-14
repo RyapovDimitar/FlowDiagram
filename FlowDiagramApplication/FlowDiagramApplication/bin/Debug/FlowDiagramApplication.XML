@@ -218,12 +218,6 @@
             The current component instance id.
             </summary>
         </member>
-        <member name="P:FlowDiagramApplication.Component.CurrentId">
-            <summary>
-            The current component instance id.
-            TODO: Add in the classes description.
-            </summary>
-        </member>
         <member name="F:FlowDiagramApplication.Component.size">
             <summary>
             The size of the componenet picture.
@@ -239,7 +233,17 @@
             The image of the component.
             </summary>
         </member>
+        <member name="P:FlowDiagramApplication.Component.Image">
+            <summary>
+            The image of the component.
+            </summary>
+        </member>
         <member name="F:FlowDiagramApplication.Component.componentType">
+            <summary>
+            The type of the component.
+            </summary>
+        </member>
+        <member name="P:FlowDiagramApplication.Component.ComponentType">
             <summary>
             The type of the component.
             </summary>
@@ -461,6 +465,13 @@
             This is the main class that executes the logic of the flow diagram application.
             </summary>
         </member>
+        <member name="M:FlowDiagramApplication.FlowDiagram.#ctor">
+            <summary>
+            The constructor of the class.
+            TODO: To be added in the documentation.
+            Created by: Dimitar
+            </summary>
+        </member>
         <member name="F:FlowDiagramApplication.FlowDiagram.Components">
             <summary>
             The list of all the components in the flow diagram.
@@ -496,6 +507,7 @@
         <member name="M:FlowDiagramApplication.FlowDiagram.ClearFlowDiagram">
             <summary>
             The method that clears the flow diagram from the drawing space.
+            Created by: Dimitar
             </summary>
         </member>
         <member name="M:FlowDiagramApplication.FlowDiagram.SaveToFile(System.String)">
@@ -513,6 +525,7 @@
         <member name="M:FlowDiagramApplication.FlowDiagram.AddComponent(System.Drawing.Point,FlowDiagramApplication.ComponentType)">
             <summary>
             The method that adds a component to the list with components.
+            Created by: Dimitar
             </summary>
             <param name="position">The position of the component.</param>
             <param name="type">The type of the component.</param>
@@ -520,6 +533,7 @@
         <member name="M:FlowDiagramApplication.FlowDiagram.DeleteComponent(FlowDiagramApplication.Component)">
             <summary>
             The method that is deleting a component from the list of components.
+            TODO: Change method type from void to bool in the class description.
             </summary>
             <param name="component">The component that is to be deleted.</param>
         </member>
@@ -541,6 +555,8 @@
         <member name="M:FlowDiagramApplication.FlowDiagram.Disconnect(FlowDiagramApplication.Component,FlowDiagramApplication.Component)">
             <summary>
             The method that deletes a connection between two components.
+            TODO: Add in documentation - changed from "void" to "bool"
+            Created by: Dimitar
             </summary>
             <param name="first">The first component that is to be disconnected.</param>
             <param name="second">The second component that is to be disconnected.</param>
@@ -548,6 +564,8 @@
         <member name="M:FlowDiagramApplication.FlowDiagram.ChangeCapacity(FlowDiagramApplication.Component,System.Double)">
             <summary>
             The method that changes the capacity of a component.
+            TODO: Add in the classes description the new parameter newCapacity
+            Created by: Dimitar
             </summary>
             <param name="component">The component that is going to have its capacity 
             changed.</param>
@@ -617,6 +635,46 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:FlowDiagramApplication.Properties.Resources.Adj__SplitterIcon">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:FlowDiagramApplication.Properties.Resources.DeleteIcon">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:FlowDiagramApplication.Properties.Resources.MergerIcon">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:FlowDiagramApplication.Properties.Resources.PipelineIcon">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:FlowDiagramApplication.Properties.Resources.PumpIcon">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:FlowDiagramApplication.Properties.Resources.SelectIcon">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:FlowDiagramApplication.Properties.Resources.SinkIcon">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:FlowDiagramApplication.Properties.Resources.SplitterIcon">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
     </members>

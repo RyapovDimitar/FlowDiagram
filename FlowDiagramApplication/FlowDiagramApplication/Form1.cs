@@ -16,10 +16,11 @@ namespace FlowDiagramApplication
     {
         FlowDiagram fl;
         ToolType tool;
+        Point mousePosition = new Point();
         private int halfSize = 20;
-        private Component selectedComponent = null;
-        private Component unselectedComponent = null;
+        private Component selectedComponent = null, unselectedComponent = null;
         private Pipeline selectedPipeline = null;
+        private Component input = null, output = null;
 
         private enum ToolType
         {
@@ -49,6 +50,15 @@ namespace FlowDiagramApplication
 
         private void pbCanvas_Paint(object sender, PaintEventArgs e)
         {
+            Pen whitePen = new Pen(Color.White, 2);
+            Pen bluePen = new Pen(Color.LightBlue, 2);
+
+            // Drawing the line for adding a new pipeline
+            if (input != null && output == null)
+            {
+
+                e.Graphics.DrawLine(bluePen, input.Position.X+halfSize, input.Position.Y + halfSize, mousePosition.X, mousePosition.Y);
+            }
             // Drawing the components
             if (fl.Components != null)
                 foreach (Component component in fl.Components)
@@ -76,19 +86,26 @@ namespace FlowDiagramApplication
                     
                 }
 
+
             // Draws a rectangle around the selected component
             if (selectedComponent != null)
             {
                 Rectangle selectRect = new Rectangle(selectedComponent.Position.X-1, selectedComponent.Position.Y-1, halfSize * 2 + 2, halfSize * 2 + 2);
-                Pen bluePen = new Pen(Color.LightBlue, 2);
                 e.Graphics.DrawRectangle(bluePen, selectRect);
             }
             if (unselectedComponent != null)
             {
                 Rectangle unselectRect = new Rectangle(unselectedComponent.Position.X - 1, unselectedComponent.Position.Y - 1, halfSize * 2 + 2, halfSize * 2 + 2);
-                Pen whitePen = new Pen(Color.White, 2);
                 e.Graphics.DrawRectangle(whitePen, unselectRect);
                 unselectedComponent = null;
+            }
+        }
+        private void pbCanvas_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(input != null && output == null)
+            {
+                mousePosition = e.Location;
+                pbCanvas.Invalidate();
             }
         }
 
@@ -153,6 +170,12 @@ namespace FlowDiagramApplication
             foreach (ToolStripButton item in ((ToolStripButton)sender).GetCurrentParent().Items)
             {
                 if (item == sender) item.Checked = true;
+                if(sender.ToString() != "Pipeline")
+                {
+                    input = null;
+                    output = null;
+                    pbCanvas.Invalidate();
+                }
                 if ((item != null) && (item != sender))
                 {
                     item.Checked = false;
@@ -167,13 +190,13 @@ namespace FlowDiagramApplication
             {
                 if(component.Position.X + halfSize >= mousePosition.X && component.Position.X - halfSize <= mousePosition.X && component.Position.Y - halfSize <= mousePosition.Y && component.Position.Y + halfSize >= mousePosition.Y) 
                 {
-                    result = "Component," + Convert.ToString(component.CurrentId);
+                    result = "Component," + Convert.ToString(component.GetId());
                     return result;
                 }
             }
 
             //TODO Check if the position is over a pipeline
-
+            
             return null;
         }
 
@@ -260,22 +283,81 @@ namespace FlowDiagramApplication
                         fl.AddComponent(position, ComponentType.Splitter);
                     break;
                 case ToolType.addPipeline:
+                    selected = CheckMousePosition(position);
+                    if (selected != null)
+                    {
+                        str = selected.Split(new[] { ',' });
+                        if (str[0] == "Component")
+                        {
+                            SelectComponent(Convert.ToInt32(str[1]));
+                            if(input == null)
+                            {
+                                input = selectedComponent;
+                            }
+                            else if (output == null)
+                            {
+                                output = selectedComponent;
+                                fl.Connect(input, output);
+                                input = null;
+                                output = null;
+                            }
+                        }
+                    }
                     break;
                 default:
                     break;
             }
+            // Checks if a Pump is selected
+            if (selectedComponent != null && selectedComponent.ComponentType == ComponentType.Pump)
+            {
+                componentProperties.Visible = true;
+                Pump selectedPump = SelectPump();
+                tbCapacity.Text = Convert.ToString(selectedPump.Capacity);
+                tbFlow.Text = Convert.ToString(selectedPump.Output);
+            }
+            else
+            {
+                componentProperties.Visible = false;
+            }
+
+            //Checks if an adjustable splitter is selected
+            if (selectedComponent != null && selectedComponent.ComponentType == ComponentType.AdjustableSplitter)
+            {
+                gbSetRate.Visible = true;
+                AdjustableSplitter selectedAdjustableSplitter = SelectAdjustableSplitter();
+                tbSetRate.Text = Convert.ToString(selectedAdjustableSplitter.DivisionRate);
+            }
+            else
+            {
+                gbSetRate.Visible = false;
+            }
+
             pbCanvas.Invalidate();
         }
+
+        private Pump SelectPump ()
+        {
+            Pump selectedPump = (Pump)fl.Components.First(component => component.GetId() == selectedComponent.GetId());
+            return selectedPump;
+        }
+
+        private AdjustableSplitter SelectAdjustableSplitter ()
+        {
+            AdjustableSplitter selectedAdjustableSplitter = (AdjustableSplitter)fl.Components.First(component => component.GetId() == selectedComponent.GetId());
+            return selectedAdjustableSplitter;
+        }
+
         private void SelectComponent(int componentId)
         {
             foreach (Component component in fl.Components)
             {
-                if (component.CurrentId == componentId)
+                if (component.GetId() == componentId)
                 {
                     selectedComponent = component;
                     selectedPipeline = null;
                 }
             }
+            
             pbCanvas.Invalidate();
         }
         private void DeleteComponent(int componentId)
@@ -283,7 +365,7 @@ namespace FlowDiagramApplication
             Component toDelete = null;
             foreach (Component component in fl.Components)
             {
-                if (component.CurrentId == componentId)
+                if (component.GetId() == componentId)
                 {
                     toDelete = component;
                 }
@@ -299,6 +381,93 @@ namespace FlowDiagramApplication
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            if(selectedComponent != null)
+            {
+                MessageBox.Show(selectedComponent.ToString());
+            }
+            else if(selectedPipeline != null)
+            {
+                MessageBox.Show(selectedPipeline.ToString());
+            }
+            else
+            {
+                
+            }
+        }
+
+        private void clearNetworkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Are you sure you want to clear the network?", "Yes No", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                fl.ClearFlowDiagram();
+                pbCanvas.Invalidate();
+            }
+        }
+
+        private void propertiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbCapacity_TextChanged(object sender, EventArgs e)
+        {
+            double capacity = Convert.ToDouble(tbCapacity.Text);
+            fl.ChangeCapacity(selectedComponent, capacity);
+        }
+
+        private void tbFlow_TextChanged(object sender, EventArgs e)
+        {
+            double flow = Convert.ToDouble(tbFlow.Text);
+        }
+
+        private void tbCapacity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+        private void tbFlow_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+   
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Binary file|*.bin";
+            saveFileDialog.Title = "Save the flow network";
+            saveFileDialog.ShowDialog();
+            if (saveFileDialog.FileName != null)
+                fl.SaveToFile(saveFileDialog.FileName);
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Binary file|*.bin";
+            saveFileDialog.Title = "Save the flow network";
+            saveFileDialog.ShowDialog();
+            if (saveFileDialog.FileName != null)
+                fl.SaveToFile(saveFileDialog.FileName);
         }
     }
 }
