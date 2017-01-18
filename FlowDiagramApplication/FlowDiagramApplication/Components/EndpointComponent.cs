@@ -10,19 +10,9 @@ namespace FlowDiagramApplication
     /// <summary>
     /// The class representing the group of components that are endpoint components.
     /// </summary>
+    [Serializable]
     public abstract class EndpointComponent:Component
     {
-        /// <summary>
-        /// The method that connects a component to the endpoint component.
-        /// </summary>
-        /// <param name="component">The component that is conencted.</param>
-        public abstract void Connect(Component component);
-
-        /// <summary>
-        /// The method that disconnects a component from the endpoint component.
-        /// </summary>
-        public abstract void Disconnect();
-
         /// <summary>
         /// The constructor of the class.
         /// </summary>

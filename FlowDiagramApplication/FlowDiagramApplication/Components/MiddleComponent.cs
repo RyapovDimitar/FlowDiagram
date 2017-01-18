@@ -10,30 +10,9 @@ namespace FlowDiagramApplication
     /// <summary>
     /// The class representing the group of components that are endpoint components.
     /// </summary>
-    public abstract class MiddleComponent:Component
+    [Serializable]
+    public abstract class MiddleComponent : Component
     {
-        /// <summary>
-        /// The method that connects input component.
-        /// </summary>
-        /// <param name="component">The component that is going to be connected.</param>
-        public abstract void ConnectInput(Component component);
-
-        /// <summary>
-        /// The method that connects output component.
-        /// </summary>
-        /// <param name="component">The component that is going to be connected.</param>
-        public abstract void ConnectOutput(Component component);
-
-        /// <summary>
-        /// The method that disconnects input component.
-        /// </summary>
-        public abstract void DisconnectInput();
-
-        /// <summary>
-        /// The method that disconnects output component.
-        /// </summary>
-        public abstract void DisconnectOutput();
-
         /// <summary>
         /// The constructor of the class
         /// </summary>
@@ -41,6 +20,40 @@ namespace FlowDiagramApplication
         /// <param name="type">The type of the component.</param>
         public MiddleComponent(Point position, ComponentType type) : base(position, type)
         {
+            this.upperConnectedComponent = 0;
+            this.lowerConnectedComponent = 0;
+            this.otherConnected = 0;
+        }
+
+        protected int upperConnectedComponent;
+        protected int otherConnected;
+        protected int lowerConnectedComponent;
+        public int OtherConnected
+        {
+            get { return this.otherConnected; }
+        }
+        public int UpperConnectedComponent
+        {
+            get { return this.upperConnectedComponent; }
+        }
+        public int LowerConnectedComponent
+        {
+            get { return this.lowerConnectedComponent; }
+        }
+
+        public void ConnectUpper(Component c)
+        {
+            this.upperConnectedComponent = c.GetId();
+        }
+
+        public void ConnectLower(Component c)
+        {
+            this.lowerConnectedComponent = c.GetId();
+        }
+
+        public void ConnectOther(Component c)
+        {
+            this.otherConnected = c.GetId();
         }
 
     }

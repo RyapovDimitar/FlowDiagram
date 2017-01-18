@@ -41,6 +41,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.btnSelect = new System.Windows.Forms.ToolStripButton();
+            this.btnMove = new System.Windows.Forms.ToolStripButton();
             this.btnDelete = new System.Windows.Forms.ToolStripButton();
             this.btnPump = new System.Windows.Forms.ToolStripButton();
             this.btnSink = new System.Windows.Forms.ToolStripButton();
@@ -50,19 +51,27 @@
             this.btnPipeline = new System.Windows.Forms.ToolStripButton();
             this.pbCanvas = new System.Windows.Forms.PictureBox();
             this.componentProperties = new System.Windows.Forms.GroupBox();
+            this.tbFlow = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tbCapacity = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbFlow = new System.Windows.Forms.TextBox();
             this.gbSetRate = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.tbSetRate = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.networkProperties = new System.Windows.Forms.GroupBox();
+            this.tbGeneralSafetyLimit = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.gbPipeline = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbPipeline = new System.Windows.Forms.TextBox();
             this.mainMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCanvas)).BeginInit();
             this.componentProperties.SuspendLayout();
             this.gbSetRate.SuspendLayout();
+            this.networkProperties.SuspendLayout();
+            this.gbPipeline.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenu
@@ -93,18 +102,19 @@
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.saveAsToolStripMenuItem.Text = "Save as";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -113,6 +123,8 @@
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            this.openToolStripMenuItem.MouseDown += new System.Windows.Forms.MouseEventHandler(this.openToolStripMenuItem_MouseDown);
             // 
             // workplaceToolStripMenuItem
             // 
@@ -144,7 +156,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(134, 631);
+            this.panel1.Size = new System.Drawing.Size(134, 684);
             this.panel1.TabIndex = 4;
             // 
             // toolStrip1
@@ -155,6 +167,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.btnSelect,
+            this.btnMove,
             this.btnDelete,
             this.btnPump,
             this.btnSink,
@@ -166,7 +179,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(100, 630);
+            this.toolStrip1.Size = new System.Drawing.Size(100, 674);
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
@@ -195,6 +208,21 @@
             this.btnSelect.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSelect.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
+            // btnMove
+            // 
+            this.btnMove.CheckOnClick = true;
+            this.btnMove.Image = global::FlowDiagramApplication.Properties.Resources.SelectIcon;
+            this.btnMove.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnMove.ImageTransparentColor = System.Drawing.Color.White;
+            this.btnMove.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
+            this.btnMove.Name = "btnMove";
+            this.btnMove.Size = new System.Drawing.Size(88, 24);
+            this.btnMove.Tag = "Move";
+            this.btnMove.Text = "Move";
+            this.btnMove.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMove.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.btnMove.Click += new System.EventHandler(this.btnMove_Click);
             // 
             // btnDelete
             // 
@@ -312,7 +340,9 @@
             this.pbCanvas.TabStop = false;
             this.pbCanvas.Click += new System.EventHandler(this.pbCanvas_Click);
             this.pbCanvas.Paint += new System.Windows.Forms.PaintEventHandler(this.pbCanvas_Paint);
+            this.pbCanvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbCanvas_MouseDown);
             this.pbCanvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbCanvas_MouseMove);
+            this.pbCanvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbCanvas_MouseUp);
             // 
             // componentProperties
             // 
@@ -327,6 +357,24 @@
             this.componentProperties.TabStop = false;
             this.componentProperties.Text = "Properties";
             this.componentProperties.Visible = false;
+            // 
+            // tbFlow
+            // 
+            this.tbFlow.Location = new System.Drawing.Point(10, 97);
+            this.tbFlow.Name = "tbFlow";
+            this.tbFlow.Size = new System.Drawing.Size(149, 22);
+            this.tbFlow.TabIndex = 3;
+            this.tbFlow.TextChanged += new System.EventHandler(this.tbFlow_TextChanged);
+            this.tbFlow.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbFlow_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Flow";
             // 
             // tbCapacity
             // 
@@ -346,23 +394,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Capacity";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 77);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Flow";
-            // 
-            // tbFlow
-            // 
-            this.tbFlow.Location = new System.Drawing.Point(10, 97);
-            this.tbFlow.Name = "tbFlow";
-            this.tbFlow.Size = new System.Drawing.Size(149, 22);
-            this.tbFlow.TabIndex = 3;
-            this.tbFlow.TextChanged += new System.EventHandler(this.tbFlow_TextChanged);
-            // 
             // gbSetRate
             // 
             this.gbSetRate.Controls.Add(this.tbSetRate);
@@ -375,6 +406,15 @@
             this.gbSetRate.Text = "Set rate";
             this.gbSetRate.Visible = false;
             // 
+            // tbSetRate
+            // 
+            this.tbSetRate.Location = new System.Drawing.Point(11, 43);
+            this.tbSetRate.Name = "tbSetRate";
+            this.tbSetRate.Size = new System.Drawing.Size(148, 22);
+            this.tbSetRate.TabIndex = 4;
+            this.tbSetRate.TextChanged += new System.EventHandler(this.tbSetRate_TextChanged);
+            this.tbSetRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSetRate_KeyPress);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -384,18 +424,74 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Rate";
             // 
-            // tbSetRate
+            // networkProperties
             // 
-            this.tbSetRate.Location = new System.Drawing.Point(11, 43);
-            this.tbSetRate.Name = "tbSetRate";
-            this.tbSetRate.Size = new System.Drawing.Size(148, 22);
-            this.tbSetRate.TabIndex = 4;
+            this.networkProperties.Controls.Add(this.tbGeneralSafetyLimit);
+            this.networkProperties.Controls.Add(this.label4);
+            this.networkProperties.Location = new System.Drawing.Point(834, 54);
+            this.networkProperties.Name = "networkProperties";
+            this.networkProperties.Size = new System.Drawing.Size(165, 74);
+            this.networkProperties.TabIndex = 9;
+            this.networkProperties.TabStop = false;
+            this.networkProperties.Text = "Network properties";
+            this.networkProperties.Visible = false;
+            // 
+            // tbGeneralSafetyLimit
+            // 
+            this.tbGeneralSafetyLimit.Location = new System.Drawing.Point(11, 43);
+            this.tbGeneralSafetyLimit.Name = "tbGeneralSafetyLimit";
+            this.tbGeneralSafetyLimit.Size = new System.Drawing.Size(148, 22);
+            this.tbGeneralSafetyLimit.TabIndex = 4;
+            this.tbGeneralSafetyLimit.TextChanged += new System.EventHandler(this.tbGeneralSafetyLimit_TextChanged);
+            this.tbGeneralSafetyLimit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbGeneralSafetyLimit_KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(129, 17);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "General safety limit";
+            // 
+            // gbPipeline
+            // 
+            this.gbPipeline.Controls.Add(this.label5);
+            this.gbPipeline.Controls.Add(this.tbPipeline);
+            this.gbPipeline.Enabled = false;
+            this.gbPipeline.Location = new System.Drawing.Point(834, 54);
+            this.gbPipeline.Name = "gbPipeline";
+            this.gbPipeline.Size = new System.Drawing.Size(165, 77);
+            this.gbPipeline.TabIndex = 10;
+            this.gbPipeline.TabStop = false;
+            this.gbPipeline.Text = "Pipeline properties";
+            this.gbPipeline.Visible = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 17);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Safety limit";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // tbPipeline
+            // 
+            this.tbPipeline.Location = new System.Drawing.Point(7, 38);
+            this.tbPipeline.Name = "tbPipeline";
+            this.tbPipeline.Size = new System.Drawing.Size(152, 22);
+            this.tbPipeline.TabIndex = 0;
+            this.tbPipeline.TextChanged += new System.EventHandler(this.tbPipeline_TextChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1011, 659);
+            this.ClientSize = new System.Drawing.Size(1011, 712);
+            this.Controls.Add(this.gbPipeline);
+            this.Controls.Add(this.networkProperties);
             this.Controls.Add(this.gbSetRate);
             this.Controls.Add(this.componentProperties);
             this.Controls.Add(this.panel1);
@@ -414,6 +510,10 @@
             this.componentProperties.PerformLayout();
             this.gbSetRate.ResumeLayout(false);
             this.gbSetRate.PerformLayout();
+            this.networkProperties.ResumeLayout(false);
+            this.networkProperties.PerformLayout();
+            this.gbPipeline.ResumeLayout(false);
+            this.gbPipeline.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,6 +549,13 @@
         private System.Windows.Forms.GroupBox gbSetRate;
         private System.Windows.Forms.TextBox tbSetRate;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripButton btnMove;
+        private System.Windows.Forms.GroupBox networkProperties;
+        private System.Windows.Forms.TextBox tbGeneralSafetyLimit;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox gbPipeline;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbPipeline;
     }
 }
 

@@ -11,59 +11,9 @@ namespace FlowDiagramApplication.Components
     /// <summary>
     /// The class representing the Merger component.
     /// </summary>
+    [Serializable]
     public class Merger : MiddleComponent
     {
-        /// <summary>
-        /// The method that connects first(up) input component
-        /// </summary>
-        /// <param name="component">The component that is going to be connected.</param>
-        public override void ConnectInput(Component component)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// The method that connects second(down) input component
-        /// </summary>
-        /// <param name="component">The component that is going to be connected.</param>
-        public void ConnectSecondInput(Component component)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// The method that connects the first(up) output component
-        /// </summary>
-        /// <param name="component">The component that is going to be connected.</param>
-        public override void ConnectOutput(Component component)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// The method that disconnects the up input component.
-        /// </summary>
-        public override void DisconnectInput()
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// The method that disconnects the second input component.
-        /// </summary>
-        public void DisconnectSecondInput()
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// The method that disconnects the output component.
-        /// </summary>
-        public override void DisconnectOutput()
-        {
-            throw new NotImplementedException();
-        }
-
         /// <summary>
         /// The constructor of the component.
         /// </summary>

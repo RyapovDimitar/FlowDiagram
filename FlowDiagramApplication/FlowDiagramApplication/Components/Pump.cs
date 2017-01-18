@@ -11,6 +11,7 @@ namespace FlowDiagramApplication
     /// <summary>
     /// The class representing the pump component.
     /// </summary>
+    [Serializable]
     public class Pump : EndpointComponent
     {
         /// <summary>
@@ -41,23 +42,6 @@ namespace FlowDiagramApplication
             this.image = Resources.PumpIcon;
             this.capacity = 0;
             this.output = 0;
-        }
-
-        /// <summary>
-        /// The method that connects the next component to the pump.
-        /// </summary>
-        /// <param name="component"></param>
-        public override void Connect(Component component)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// The method that disconnects the next component to the pump.
-        /// </summary>
-        public override void Disconnect()
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>

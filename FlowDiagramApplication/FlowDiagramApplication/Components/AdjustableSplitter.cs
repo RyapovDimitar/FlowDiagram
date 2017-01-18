@@ -11,77 +11,27 @@ namespace FlowDiagramApplication.Components
     /// <summary>
     /// The class representing the adjustable splitter component.
     /// </summary>
+    [Serializable]
     public class AdjustableSplitter:MiddleComponent
     {
         /// <summary>
         /// The division rate of the adjustable splitter. 
         /// </summary>
         // EXTRA I added the get property and set the default divisionRate at 70 for testing purposes
-        private double divisionRate = 70;
+        private int divisionRate = 70;
 
-        public double DivisionRate
+        public int DivisionRate
         {
             get { return this.divisionRate; }
-        }
-
-        /// <summary>
-        /// The method that connects second(down) output component
-        /// </summary>
-        /// <param name="component">The component that is going to be connected.</param>
-        public void ConnectSecondOutput(Component component)
-        {
-
-        }
-
-        /// <summary>
-        /// The method that makes the connection with the the input component
-        /// </summary>
-        /// <param name="component">The component that is going to be connected.</param>
-        public override void ConnectInput(Component component)
-        {
-
-        }
-
-        /// <summary>
-        /// The method that makes the connection with the output component
-        /// </summary>
-        /// <param name="component">The component that is going to be connected.</param>
-        public override void ConnectOutput(Component component)
-        {
-
-        }
-
-        /// <summary>
-        /// The method that disconnects the input component.
-        /// </summary>
-        public override void DisconnectInput()
-        {
-
-        }
-
-        /// <summary>
-        /// The method that disconnects the output component.
-        /// </summary>
-        public override void DisconnectOutput()
-        {
-
-        }
-
-        /// <summary>
-        /// The method that disconnects the second output component.
-        /// </summary>
-        public void DisconnectSecondOutput()
-        {
-
         }
 
         /// <summary>
         /// The method that sets the division rate.
         /// </summary>
         /// <param name="rate">The rate that is going to be set.</param>
-        public void SetDivisionRate(double rate)
+        public void SetDivisionRate(int rate)
         {
-
+            divisionRate = rate;
         }
 
         /// <summary>

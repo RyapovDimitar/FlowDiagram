@@ -11,6 +11,7 @@ namespace FlowDiagramApplication
     /// The main class that represents the Component object - this is the main class, 
     /// which is inherited by the endpoint and middle components.
     /// </summary>
+    [Serializable]
     public abstract class Component
     {
         /// <summary>
@@ -89,7 +90,6 @@ namespace FlowDiagramApplication
         /// <returns>The info string of the component.</returns>
         public override string ToString()
         {
-            //TODO
             return "The component is " + this.componentType.ToString() + " " + Convert.ToString(position);
         }
 

@@ -11,12 +11,22 @@ namespace FlowDiagramApplication.Components
     /// <summary>
     /// The class representing the Sink component.
     /// </summary>
+    [Serializable]
     public class Sink : EndpointComponent
     {
         /// <summary>
         /// The input flow of the sink.
         /// </summary>
         private double input;
+        public double Input
+        {
+            get { return this.input; }
+        }
+
+        public void SetInput(double flow)
+        {
+            this.input = flow;
+        }
 
         /// <summary>
         /// The constructor of the component.
@@ -26,23 +36,6 @@ namespace FlowDiagramApplication.Components
         public Sink(Point position, ComponentType type) : base(position, type)
         {
             this.image = Resources.SinkIcon;
-        }
-
-        /// <summary>
-        /// The method that connects the previous component to the sink.
-        /// </summary>
-        /// <param name="component"></param>
-        public override void Connect(Component component)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// The method that disconnects the previous component to the sink. 
-        /// </summary>
-        public override void Disconnect()
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>
